@@ -1668,6 +1668,93 @@
         padding-top: 10px;
       }
     }
+
+
+    /* =========================================================
+       Ajuste solicitado: justificação textual ampla.
+       Intervenção exclusivamente visual: não altera conteúdo,
+       schema, validações, salvamento, PDF ou envio.
+       ========================================================= */
+
+    .cover-subtitle,
+    .cover-note,
+    .cover-list li > span:not(.list-index),
+    .app-masthead p,
+    .orientation-card h2,
+    .orientation-card p,
+    .identity-card h2,
+    .identity-item > span:last-child,
+    .form-title p,
+    .block-note > div,
+    .autosave-note,
+    .question-title label,
+    .hint,
+    .option-text,
+    .other-input-wrap input,
+    .field-error,
+    .review-top p,
+    .review-section h3,
+    .review-question,
+    .review-answer,
+    .delivery-status,
+    .modal-card p,
+    .footer p {
+      text-align: justify !important;
+      text-justify: inter-word;
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
+
+    .cover-title,
+    .app-masthead h1,
+    .form-title h2,
+    .review-card h2 {
+      text-align: left;
+    }
+
+    .cover-list li,
+    .identity-item,
+    .question-title,
+    .option {
+      text-align: left;
+    }
+
+    .cover-list li > span:not(.list-index),
+    .identity-item > span:last-child,
+    .question-title label,
+    .option-text {
+      width: 100%;
+      min-width: 0;
+    }
+
+    @media (max-width: 640px) {
+      .cover-subtitle,
+      .cover-note,
+      .cover-list li > span:not(.list-index),
+      .app-masthead p,
+      .orientation-card h2,
+      .orientation-card p,
+      .identity-card h2,
+      .identity-item > span:last-child,
+      .form-title p,
+      .block-note > div,
+      .autosave-note,
+      .question-title label,
+      .hint,
+      .option-text,
+      .field-error,
+      .review-top p,
+      .review-section h3,
+      .review-question,
+      .review-answer,
+      .delivery-status,
+      .modal-card p,
+      .footer p {
+        text-align: justify !important;
+        text-justify: inter-word;
+      }
+    }
+
 </style>
 </head>
 
