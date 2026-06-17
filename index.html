@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consulta Técnica DAI/2 — Revisão da Resolução</title>
-  <meta name="description" content="Consulta Técnica DAI/2 para revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2." />
+  <meta name="description" content="Consulta Técnica DAI/2 para revisão da Resolução da Diretoria de Assuntos Institucionais, com foco na atuação da DAI/2 junto aos órgãos externos." />
   <meta property="og:title" content="Consulta Técnica DAI/2" />
-  <meta property="og:description" content="Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2." />
+  <meta property="og:description" content="Revisão da Resolução da Diretoria de Assuntos Institucionais, com foco na atuação da DAI/2 junto aos órgãos externos." />
   <meta property="og:image" content="https://i.pinimg.com/736x/b8/d6/67/b8d667688c2c8e76c6d78313fcf14ee5.jpg" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
@@ -83,46 +83,49 @@
 
     .gate {
       min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: clamp(20px, 4vw, 52px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 3vw, 42px);
       background:
-        radial-gradient(circle at 18% 0%, rgba(196, 155, 65, 0.12), transparent 32%),
-        linear-gradient(135deg, #edf1f6 0%, #f7f8fb 100%);
+        radial-gradient(circle at 6% -12%, rgba(196, 155, 65, 0.14), transparent 34%),
+        radial-gradient(circle at 94% 0%, rgba(8, 24, 50, 0.10), transparent 35%),
+        linear-gradient(135deg, #eef2f7 0%, #faf7ef 100%);
+      overflow: auto;
     }
 
     .cover-stage {
-      width: min(1240px, 100%);
-      min-height: min(680px, calc(100svh - 72px));
+      width: min(1280px, calc(100vw - clamp(28px, 6vw, 84px)));
+      min-height: min(650px, calc(100svh - clamp(36px, 7vw, 92px)));
       display: grid;
-      grid-template-columns: minmax(340px, 0.46fr) 34px minmax(0, 0.86fr);
+      grid-template-columns: minmax(380px, 0.38fr) 34px minmax(0, 0.62fr);
       gap: 0;
       align-items: stretch;
-      border-radius: clamp(20px, 2.7vw, 34px);
+      border-radius: clamp(20px, 2vw, 30px);
       background: var(--white);
       border: 1px solid rgba(7, 22, 47, 0.10);
-      box-shadow: 0 32px 80px rgba(7, 22, 47, 0.18);
+      box-shadow: 0 30px 76px rgba(7, 22, 47, 0.16);
       overflow: hidden;
       position: relative;
       isolation: isolate;
     }
 
-    .cover-stage::before { content: none; }
-
     .cover-copy {
       position: relative;
       z-index: 2;
+      min-width: 0;
       min-height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: clamp(14px, 2vw, 22px);
-      padding: clamp(28px, 4.1vw, 58px) clamp(24px, 3.8vw, 52px);
+      gap: clamp(10px, 1.1vw, 15px);
+      padding: clamp(28px, 3vw, 44px) clamp(28px, 3.2vw, 48px);
       background: #ffffff;
       border-radius: 0;
       border: 0;
       box-shadow: none;
       backdrop-filter: none;
+      overflow: visible;
     }
 
     .cover-copy::before {
@@ -136,13 +139,13 @@
     .cover-visual {
       position: relative;
       z-index: 1;
+      min-width: 0;
       min-height: 100%;
-      display: grid;
-      place-items: center;
+      display: block;
       padding: 0;
       margin: 0;
       border-radius: 0;
-      background: #eef2f7;
+      background: #ffffff;
       border: 0;
       overflow: hidden;
     }
@@ -150,26 +153,25 @@
     .cover-image-frame {
       width: 100%;
       height: 100%;
-      min-height: 560px;
-      display: grid;
-      place-items: center;
-      padding: clamp(16px, 2.6vw, 34px);
+      min-height: 100%;
+      display: block;
+      padding: 0;
       border-radius: 0;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(238, 242, 247, 0.92));
+      background: #ffffff;
       border: 0;
       box-shadow: none;
+      overflow: hidden;
     }
 
     .cover-image-frame img {
       display: block;
       width: 100%;
       height: 100%;
-      max-height: calc(100svh - 126px);
-      object-fit: contain;
-      object-position: center;
-      border-radius: clamp(10px, 1.6vw, 20px);
-      filter: saturate(1.03) contrast(1.02);
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 0;
+      filter: saturate(1.02) contrast(1.01);
     }
 
     .cover-divider {
@@ -192,79 +194,15 @@
       border-left: 24px solid var(--gold-500);
     }
 
-    .cover-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      color: var(--blue-950);
-      background: transparent;
-      border: 0;
-      font-size: 0.78rem;
-      font-weight: 950;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .cover-kicker::before,
-    .section-label::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--gold-500);
-      box-shadow: 0 0 0 6px rgba(196, 155, 65, 0.14);
-    }
-
-    .cover-title {
-      margin: 0;
-      max-width: 610px;
-      color: var(--blue-950);
-      font-size: clamp(2.42rem, 4.8vw, 5.2rem);
-      line-height: 0.92;
-      letter-spacing: -0.066em;
-      font-weight: 950;
-      text-transform: none;
-    }
-
-    .cover-title::after {
-      content: "";
-      display: block;
-      width: 76px;
-      height: 4px;
-      margin-top: 18px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--red-700), var(--gold-500));
-    }
-
-    .cover-subtitle {
-      margin: -2px 0 0;
-      max-width: 520px;
-      color: var(--gray-700);
-      font-size: clamp(1rem, 1.35vw, 1.16rem);
-      line-height: 1.48;
-      font-weight: 650;
-    }
-
-    .cover-note {
-      max-width: 520px;
-      margin: 0;
-      padding: 0;
-      border-left: 0;
-      color: var(--gray-600);
-      font-size: 0.96rem;
-    }
-
     .cover-progress {
       display: inline-flex;
       width: fit-content;
+      max-width: 100%;
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
       color: var(--gray-500);
-      font-size: 0.78rem;
+      font-size: clamp(0.72rem, 0.82vw, 0.78rem);
       font-weight: 850;
       letter-spacing: 0.01em;
     }
@@ -281,9 +219,76 @@
       border: 1px solid rgba(8, 24, 50, 0.10);
     }
 
+    .cover-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      color: var(--blue-950);
+      background: transparent;
+      border: 0;
+      font-size: clamp(0.72rem, 0.82vw, 0.78rem);
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .cover-kicker::before,
+    .section-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--gold-500);
+      box-shadow: 0 0 0 6px rgba(196, 155, 65, 0.14);
+    }
+
+    .cover-title {
+      margin: 0;
+      max-width: 560px;
+      color: var(--blue-950);
+      font-size: clamp(1.8rem, 2.35vw, 2.75rem);
+      line-height: 1;
+      letter-spacing: -0.044em;
+      font-weight: 950;
+      text-transform: none;
+    }
+
+    .cover-title::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      margin-top: 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red-700), var(--gold-500));
+    }
+
+    .cover-subtitle {
+      margin: 0;
+      max-width: 520px;
+      color: var(--gray-800);
+      font-size: clamp(0.93rem, 0.98vw, 1.02rem);
+      line-height: 1.52;
+      font-weight: 700;
+    }
+
+    .cover-note {
+      max-width: 520px;
+      margin: 0;
+      padding: 0;
+      border-left: 0;
+      color: var(--gray-600);
+      font-size: clamp(0.84rem, 0.9vw, 0.94rem);
+      line-height: 1.55;
+    }
+
     .cover-list {
       display: grid;
-      gap: 10px;
+      gap: 9px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -291,24 +296,33 @@
 
     .cover-list li {
       display: grid;
-      grid-template-columns: 30px 1fr;
+      grid-template-columns: 28px 1fr;
       gap: 10px;
       align-items: start;
       color: var(--gray-700);
-      font-size: 0.94rem;
+      font-size: clamp(0.83rem, 0.9vw, 0.92rem);
+      line-height: 1.45;
     }
 
     .cover-list strong { color: var(--blue-950); }
 
     .list-index {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       display: grid;
       place-items: center;
       border-radius: 10px;
       background: rgba(8, 24, 50, 0.07);
       color: var(--blue-950);
       font-weight: 950;
+      line-height: 1;
+    }
+
+    .cover-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
     }
 
     .btn {
@@ -414,10 +428,10 @@
       margin: 0 auto;
       min-height: 320px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 220px;
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: 20px;
       align-items: center;
-      padding: 52px 0 92px;
+      padding: 46px 0 86px;
       position: relative;
       z-index: 1;
     }
@@ -451,7 +465,7 @@
     .app-masthead h1 {
       margin: 0;
       max-width: 780px;
-      font-size: clamp(2.35rem, 5vw, 4.9rem);
+      font-size: clamp(2rem, 4vw, 3.7rem);
       line-height: 0.98;
       letter-spacing: -0.058em;
       font-weight: 950;
@@ -465,21 +479,26 @@
     }
 
     .masthead-mark {
-      aspect-ratio: 3 / 4;
+      display: none;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       display: grid;
-      place-items: center;
-      padding: 10px;
-      border-radius: 24px;
+      place-items: stretch;
+      padding: 0;
+      border-radius: 22px;
+      overflow: hidden;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 22px 56px rgba(0, 0, 0, 0.16);
     }
 
     .masthead-mark img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      border-radius: 18px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0;
     }
 
     .main {
@@ -979,13 +998,13 @@
 
     @media (max-width: 1080px) {
       .cover-stage {
-        grid-template-columns: minmax(300px, 0.52fr) 28px minmax(0, 0.76fr);
-        min-height: min(620px, calc(100svh - 48px));
+        grid-template-columns: minmax(300px, 0.44fr) 32px minmax(0, 0.56fr);
+        min-height: clamp(410px, 60vh, 550px);
       }
 
-      .cover-copy { padding: clamp(24px, 3.4vw, 40px); }
-      .cover-title { font-size: clamp(2.2rem, 4.7vw, 4.2rem); }
-      .cover-image-frame { min-height: 500px; }
+      .cover-copy { padding: clamp(24px, 3.2vw, 40px); }
+      .cover-title { font-size: clamp(1.92rem, 3.1vw, 3rem); }
+      .cover-image-frame { min-height: clamp(410px, 60vh, 550px); }
     }
 
     @media (max-width: 900px) {
@@ -993,7 +1012,9 @@
         grid-template-columns: 1fr;
       }
 
-      .masthead-mark { display: none; }
+      .masthead-mark {
+        max-width: 560px;
+      }
 
       .orientation-grid { grid-template-columns: 1fr; }
 
@@ -1002,91 +1023,133 @@
 
     @media (max-width: 780px) {
       .gate {
-        place-items: start center;
+        place-items: center;
       }
 
       .cover-stage {
+        width: min(760px, 100%);
         grid-template-columns: 1fr;
         min-height: auto;
       }
 
-      .cover-divider { display: none; }
+      .cover-divider {
+        display: block;
+        height: 10px;
+        box-shadow: none;
+      }
+
+      .cover-divider::after {
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-top: 18px solid var(--gold-500);
+        border-bottom: 0;
+      }
 
       .cover-visual {
-        order: 1;
+        order: 3;
       }
 
       .cover-copy {
-        order: 2;
+        order: 1;
         min-height: auto;
+        padding: clamp(24px, 6vw, 38px);
       }
 
+      .cover-divider {
+        order: 2;
+      }
+
+      .cover-title {
+        font-size: clamp(1.85rem, 7.2vw, 2.7rem);
+        line-height: 1;
+      }
+
+      .cover-subtitle { font-size: clamp(0.95rem, 3.2vw, 1.05rem); }
+
+      .cover-note,
+      .cover-list li { font-size: 0.91rem; }
+
       .cover-image-frame {
-        min-height: 360px;
+        min-height: min(380px, 46svh);
         height: auto;
+        padding: 0;
       }
 
       .cover-image-frame img {
-        height: auto;
-        max-height: 46svh;
+        width: 100%;
+        height: 100%;
+        max-height: none;
       }
     }
 
     @media (max-width: 640px) {
       .gate {
-        padding: 12px;
-        place-items: start center;
+        padding: 10px;
+        place-items: center;
       }
 
       .cover-stage {
         width: 100%;
         min-height: auto;
         grid-template-columns: 1fr;
-        border-radius: 22px;
+        border-radius: 20px;
       }
 
-      .cover-divider { display: none; }
+      .cover-divider {
+        display: block;
+        height: 8px;
+      }
 
       .cover-visual {
-        order: 1;
+        order: 3;
         min-height: auto;
       }
 
       .cover-image-frame {
-        min-height: 310px;
+        min-height: min(300px, 42svh);
         height: auto;
-        padding: 14px;
+        padding: 0;
       }
 
       .cover-image-frame img {
-        height: auto;
-        max-height: 42svh;
+        width: 100%;
+        height: 100%;
+        max-height: none;
       }
 
       .cover-copy {
-        order: 2;
+        order: 1;
         min-height: auto;
-        padding: 24px 22px 26px;
-        gap: 15px;
+        padding: 22px 18px 24px;
+        gap: 13px;
       }
 
+      .cover-divider { order: 2; }
+
       .cover-title {
-        font-size: clamp(2.05rem, 12vw, 3.35rem);
-        letter-spacing: -0.058em;
+        font-size: clamp(1.72rem, 9.4vw, 2.35rem);
+        letter-spacing: -0.04em;
       }
 
       .cover-title::after {
         width: 58px;
+        height: 3px;
         margin-top: 14px;
       }
 
-      .cover-subtitle { font-size: 1rem; }
+      .cover-subtitle { font-size: 0.95rem; }
 
-      .cover-list li { grid-template-columns: 30px 1fr; }
+      .cover-list { gap: 8px; }
+
+      .cover-list li { grid-template-columns: 26px 1fr; }
 
       .list-index {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
+        border-radius: 9px;
       }
 
       .cover-actions,
@@ -1124,7 +1187,488 @@
         align-items: stretch;
       }
     }
-  </style>
+
+
+    /* Ajuste final da capa: evita corte de texto e mantém o banner integrado à área visual. */
+    @media (max-width: 1180px) {
+      .cover-stage {
+        width: min(1120px, calc(100vw - 36px));
+        min-height: min(620px, calc(100svh - 40px));
+        grid-template-columns: minmax(350px, 0.40fr) 32px minmax(0, 0.60fr);
+      }
+
+      .cover-copy {
+        padding: clamp(24px, 3vw, 38px);
+      }
+
+      .cover-title {
+        font-size: clamp(1.72rem, 2.55vw, 2.55rem);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .gate {
+        align-items: stretch;
+        justify-content: stretch;
+        padding: 14px;
+      }
+
+      .cover-stage {
+        width: 100%;
+        min-height: calc(100svh - 28px);
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 10px minmax(280px, 1fr);
+        border-radius: 22px;
+      }
+
+      .cover-copy {
+        order: 1;
+        min-height: auto;
+        justify-content: center;
+        padding: clamp(22px, 5vw, 36px);
+      }
+
+      .cover-divider {
+        order: 2;
+        height: 10px;
+        box-shadow: none;
+      }
+
+      .cover-divider::after {
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-top: 18px solid var(--gold-500);
+        border-bottom: 0;
+      }
+
+      .cover-visual {
+        order: 3;
+        min-height: 280px;
+      }
+
+      .cover-image-frame,
+      .cover-image-frame img {
+        min-height: 100%;
+        height: 100%;
+      }
+
+      .cover-title {
+        font-size: clamp(1.72rem, 6vw, 2.45rem);
+        line-height: 1.02;
+      }
+
+      .cover-subtitle {
+        font-size: clamp(0.92rem, 2.8vw, 1rem);
+      }
+
+      .cover-note,
+      .cover-list li {
+        font-size: clamp(0.86rem, 2.6vw, 0.94rem);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .gate {
+        padding: 0;
+      }
+
+      .cover-stage {
+        min-height: 100svh;
+        border-radius: 0;
+        border: 0;
+        grid-template-rows: auto 8px minmax(240px, 42svh);
+      }
+
+      .cover-copy {
+        padding: 20px 18px 22px;
+        gap: 11px;
+      }
+
+      .cover-title {
+        font-size: clamp(1.55rem, 8vw, 2.08rem);
+        letter-spacing: -0.038em;
+      }
+
+      .cover-title::after {
+        width: 56px;
+        height: 3px;
+        margin-top: 12px;
+      }
+
+      .cover-list {
+        gap: 8px;
+      }
+
+      .cover-list li {
+        grid-template-columns: 26px 1fr;
+      }
+
+      .list-index {
+        width: 26px;
+        height: 26px;
+        border-radius: 9px;
+      }
+
+      .cover-actions .btn {
+        width: 100%;
+      }
+    }
+
+
+    /* Ajuste estrutural: capa estável no onboarding, sem crescimento da imagem à direita. */
+    .cover-stage {
+      height: min(640px, calc(100svh - clamp(36px, 7vw, 92px)));
+      min-height: 540px;
+      max-height: 680px;
+    }
+
+    .cover-copy {
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .cover-visual,
+    .cover-image-frame,
+    .cover-image-frame img {
+      height: 100%;
+      min-height: 0;
+    }
+
+    .cover-actions {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-actions .btn-primary.alt {
+      margin-left: auto;
+    }
+
+    @media (max-width: 900px) {
+      .cover-stage {
+        height: auto;
+        max-height: none;
+        min-height: calc(100svh - 28px);
+      }
+
+      .cover-copy {
+        overflow: visible;
+      }
+
+      .cover-visual,
+      .cover-image-frame,
+      .cover-image-frame img {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .cover-stage {
+        min-height: 100svh;
+      }
+    }
+
+    /* Correção final: onboarding estável, textos justificados e sem deslocamento vertical entre telas. */
+    .cover-stage {
+      height: clamp(560px, 72svh, 660px);
+      min-height: 560px;
+      max-height: 660px;
+    }
+
+    .cover-copy {
+      display: grid;
+      grid-template-rows: auto auto auto auto auto minmax(110px, 1fr) auto;
+      align-content: stretch;
+      justify-content: stretch;
+      justify-items: start;
+      overflow: hidden;
+    }
+
+    .cover-progress {
+      min-height: 32px;
+      align-content: center;
+    }
+
+    .cover-kicker {
+      min-height: 20px;
+      align-items: center;
+    }
+
+    .cover-title {
+      min-height: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .cover-subtitle {
+      min-height: 72px;
+    }
+
+    .cover-note {
+      min-height: 70px;
+    }
+
+    .cover-list {
+      min-height: 110px;
+      align-self: start;
+      align-content: start;
+    }
+
+    .cover-actions {
+      width: 100%;
+      align-self: end;
+    }
+
+    .cover-subtitle,
+    .cover-note,
+    .cover-list li > span {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    @media (max-width: 1180px) {
+      .cover-stage {
+        height: clamp(560px, 76svh, 680px);
+        min-height: 560px;
+        max-height: 680px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .cover-stage {
+        height: calc(100svh - 28px);
+        min-height: 720px;
+        max-height: none;
+        grid-template-rows: minmax(410px, 0.58fr) 10px minmax(280px, 0.42fr);
+      }
+
+      .cover-copy {
+        overflow: hidden;
+        grid-template-rows: auto auto auto auto auto minmax(100px, 1fr) auto;
+      }
+
+      .cover-title {
+        min-height: 82px;
+      }
+
+      .cover-subtitle {
+        min-height: 58px;
+      }
+
+      .cover-note {
+        min-height: 58px;
+      }
+
+      .cover-list {
+        min-height: 100px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cover-stage {
+        height: auto;
+        min-height: 100svh;
+        max-height: none;
+        grid-template-rows: auto 8px minmax(240px, 38svh);
+      }
+
+      .cover-copy {
+        overflow: visible;
+        grid-template-rows: auto;
+        align-content: start;
+      }
+
+      .cover-progress,
+      .cover-kicker,
+      .cover-title,
+      .cover-subtitle,
+      .cover-note,
+      .cover-list {
+        min-height: 0;
+      }
+
+      .cover-subtitle,
+      .cover-note,
+      .cover-list li > span {
+        text-align: justify;
+      }
+    }
+
+  
+
+    /* Correção de estabilidade final: os botões do onboarding não podem ser cortados. */
+    @media (min-width: 781px) {
+      .gate {
+        min-height: 100svh;
+        align-items: center;
+        justify-content: center;
+        padding-block: clamp(18px, 3svh, 32px);
+      }
+
+      .cover-stage {
+        height: clamp(570px, calc(100svh - 56px), 660px);
+        min-height: 570px;
+        max-height: 660px;
+      }
+
+      .cover-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: clamp(8px, 1svh, 13px);
+        min-height: 0;
+        height: 100%;
+        padding: clamp(26px, 3svh, 38px) clamp(30px, 3.2vw, 48px) clamp(30px, 3svh, 38px);
+        overflow: hidden;
+      }
+
+      .cover-progress,
+      .cover-kicker,
+      .cover-title,
+      .cover-subtitle,
+      .cover-note,
+      .cover-list {
+        min-height: 0;
+      }
+
+      .cover-progress,
+      .cover-kicker,
+      .cover-title,
+      .cover-subtitle,
+      .cover-note {
+        flex: 0 0 auto;
+      }
+
+      .cover-title {
+        font-size: clamp(1.9rem, 2.5vw, 2.65rem);
+        line-height: 0.98;
+      }
+
+      .cover-subtitle {
+        font-size: clamp(0.92rem, 1.02vw, 1rem);
+        line-height: 1.46;
+      }
+
+      .cover-note {
+        font-size: clamp(0.88rem, 0.98vw, 0.96rem);
+        line-height: 1.48;
+      }
+
+      .cover-list {
+        flex: 1 1 auto;
+        align-content: start;
+        gap: 8px;
+        overflow: hidden;
+      }
+
+      .cover-list li {
+        font-size: clamp(0.84rem, 0.92vw, 0.92rem);
+        line-height: 1.4;
+      }
+
+      .cover-actions {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: clamp(12px, 2svh, 18px);
+        padding-bottom: 0;
+        position: relative;
+        z-index: 4;
+      }
+
+      .cover-actions .btn {
+        min-height: 44px;
+        padding: 11px 20px;
+      }
+
+      .cover-actions .btn-primary.alt {
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .cover-stage {
+        height: auto;
+        min-height: calc(100svh - 20px);
+        max-height: none;
+      }
+
+      .cover-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: visible;
+        min-height: auto;
+        padding-bottom: 28px;
+      }
+
+      .cover-progress,
+      .cover-kicker,
+      .cover-title,
+      .cover-subtitle,
+      .cover-note,
+      .cover-list {
+        min-height: 0;
+      }
+
+      .cover-list {
+        flex: 0 0 auto;
+      }
+
+      .cover-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 8px;
+        padding-top: 8px;
+      }
+
+      .cover-actions .btn {
+        width: 100%;
+        min-height: 46px;
+      }
+    }
+
+    @media (max-height: 720px) and (min-width: 781px) {
+      .cover-stage {
+        height: calc(100svh - 32px);
+        min-height: 540px;
+      }
+
+      .cover-copy {
+        padding-block: 24px;
+        gap: 7px;
+      }
+
+      .cover-title {
+        font-size: clamp(1.7rem, 2.35vw, 2.42rem);
+      }
+
+      .cover-title::after {
+        margin-top: 10px;
+      }
+
+      .cover-note,
+      .cover-list li {
+        font-size: 0.84rem;
+        line-height: 1.36;
+      }
+
+      .cover-actions {
+        padding-top: 10px;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -1138,15 +1682,16 @@
 
         <p class="cover-kicker" id="gateKicker">DAI/2 · Consulta técnica</p>
         <h1 class="cover-title" id="gateTitle">Consulta Técnica DAI/2</h1>
-        <p class="cover-subtitle" id="gateSubtitle">Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2.</p>
+        <p class="cover-subtitle" id="gateSubtitle">Revisão da Resolução da Diretoria de Assuntos Institucionais, com foco na atuação da DAI/2 junto aos órgãos externos.</p>
         <p class="cover-note" id="gateNote">Antes do preenchimento, a página apresentará uma orientação breve para padronizar as respostas e facilitar a geração do PDF final.</p>
 
         <ul class="cover-list" id="gateList">
-          <li><span class="list-index">1</span><span><strong>Caminho único.</strong> Primeiro a orientação, depois o formulário.</span></li>
+          <li><span class="list-index">1</span><span><strong>Orientação breve.</strong> Leia as instruções antes de iniciar o preenchimento.</span></li>
           <li><span class="list-index">2</span><span><strong>Foco normativo.</strong> Responda pensando em competência, fluxo, limite, controle e melhoria da Resolução.</span></li>
         </ul>
 
         <div class="cover-actions">
+          <button class="btn btn-secondary hidden" type="button" id="gateBackBtn">Voltar</button>
           <button class="btn btn-primary alt" type="button" id="gateNextBtn">Seguir</button>
         </div>
       </div>
@@ -1181,8 +1726,8 @@
         <article class="orientation-card">
           <div class="section-label">Foco normativo</div>
           <h2>Responda apenas o que pode melhorar a Resolução.</h2>
-          <p>Priorize informações que ajudem a definir competência, fluxo, limite, controle ou melhoria normativa.</p>
-          <p>O formulário não coleta nome, telefone, posto ou graduação. O dado útil é institucional: órgão, interface, competência, demanda, risco e proposta normativa.</p>
+          <p>Priorize informações que ajudem a definir competência, fluxo, limite, controle, governança, compliance e melhoria normativa.</p>
+          <p>O formulário não coleta nome, telefone, posto ou graduação. O dado útil é institucional: órgão, interface, competência, demanda, risco, governança, compliance e proposta normativa.</p>
         </article>
 
         <aside class="identity-card">
@@ -1202,7 +1747,7 @@
             <div class="progress-bar" aria-label="Progresso do formulário">
               <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="progress-text" id="progressText">Etapa 1 de 7</div>
+            <div class="progress-text" id="progressText">Etapa 1 de 8</div>
           </div>
           <div class="form-title">
             <h2 id="stepTitle">Carregando...</h2>
@@ -1213,7 +1758,7 @@
         <div class="form-body">
           <div class="block-note">
             <span class="note-icon">!</span>
-            <div><strong>Responda com foco normativo.</strong> Priorize informações que ajudem a definir competência, fluxo, limite, controle ou melhoria normativa.</div>
+            <div><strong>Responda com foco normativo.</strong> Priorize informações que ajudem a definir competência, fluxo, limite, controle, governança, compliance e melhoria normativa.</div>
           </div>
 
           <p class="autosave-note"><strong>Salvamento automático ativo.</strong> As respostas são salvas automaticamente neste navegador.</p>
@@ -1292,10 +1837,10 @@
         pdfLoadError: "Não foi possível carregar o gerador de PDF. Verifique a conexão e tente novamente.",
         requiredError: "Preencha os campos obrigatórios antes de avançar.",
         clearSuccess: "Respostas removidas.",
-        shareMobileSuccess: "PDF gerado. Selecione o WhatsApp e encaminhe o arquivo para o número indicado.",
-        shareDesktopSuccess: "PDF baixado. O WhatsApp Web foi aberto. Anexe o arquivo baixado e envie para o número indicado.",
+        shareMobileSuccess: "PDF gerado. Encaminhe o arquivo pelo WhatsApp do Coordenador da DAI/2.",
+        shareDesktopSuccess: "PDF baixado. O WhatsApp Web foi aberto. Anexe o arquivo baixado e envie pelo WhatsApp do Coordenador da DAI/2.",
         shareCancelled: "Envio cancelado. O PDF permanece disponível para download.",
-        pdfGenerated: "PDF gerado. Conclua o envio pelo WhatsApp."
+        pdfGenerated: "PDF gerado. Conclua o envio pelo WhatsApp do Coordenador da DAI/2."
       }
     };
 
@@ -1305,11 +1850,11 @@
         progress: "Boas-vindas institucional",
         kicker: "DAI/2 · Consulta técnica",
         title: "Consulta Técnica DAI/2",
-        subtitle: "Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2.",
+        subtitle: "Revisão da Resolução da Diretoria de Assuntos Institucionais, com foco na atuação da DAI/2 junto aos órgãos externos.",
         note: "Antes do preenchimento, a página apresentará uma orientação breve para padronizar as respostas e facilitar a geração do PDF final.",
         button: "Seguir",
         items: [
-          ["Caminho único.", "Primeiro a orientação, depois o formulário."],
+          ["Orientação breve.", "Leia as instruções antes de iniciar o preenchimento."],
           ["Foco normativo.", "Responda pensando em competência, fluxo, limite, controle e melhoria da Resolução."]
         ]
       },
@@ -1317,40 +1862,40 @@
         pill: "1 de 3",
         progress: "Finalidade da consulta",
         kicker: "Orientação inicial",
-        title: "Respostas para revisar a norma, não para cadastro pessoal.",
-        subtitle: "A consulta reúne informações institucionais dos órgãos externos subordinados à DAI/2 para atualizar a parte da Resolução referente à DAI, Diretoria de Assuntos Institucionais.",
-        note: "Não informe dados pessoais. O foco é a atuação institucional do órgão e da interface com o CBMMG.",
+        title: "Responda para melhorar a norma.",
+        subtitle: "A consulta busca transformar a experiência prática da DAI/2 em regras mais claras, úteis e aplicáveis.",
+        note: "Não informe dados pessoais. O dado útil é institucional: órgão, interface, competência, demanda, risco, controle e proposta de melhoria.",
         button: "Seguir",
         items: [
-          ["Órgão.", "Indique a instituição representada."],
-          ["Utilidade.", "Mostre como a interface apoia decisão, articulação, controle ou proteção institucional."]
+          ["Seja objetivo.", "Escreva respostas curtas, diretas e verificáveis."],
+          ["Pense na Resolução.", "Informe o que precisa constar, ser ajustado, limitado ou formalizado."]
         ]
       },
       {
         pill: "2 de 3",
         progress: "Como responder",
         kicker: "Utilidade normativa",
-        title: "Escreva para transformar prática em regra clara.",
-        subtitle: "As melhores respostas indicam o que deve ser mantido, alterado, incluído, limitado ou formalizado.",
-        note: "Prefira frases objetivas. Quando houver risco, descreva também a solução normativa sugerida.",
+        title: "Descreva prática, fluxo, limite e solução.",
+        subtitle: "As melhores respostas indicam o que acontece hoje e como a nova Resolução deve organizar essa prática.",
+        note: "Quando houver risco, fragilidade ou dúvida de competência, descreva também a solução normativa sugerida.",
         button: "Seguir",
         items: [
-          ["Atividade real.", "Descreva o que o Assessor Militar chefe efetivamente faz no órgão."],
-          ["Fluxo e limite.", "Indique o que passa pela DAI/2, o que pode ser resolvido diretamente e o que exige autorização."],
-          ["Risco e solução.", "Informe risco jurídico, funcional, operacional ou institucional e a medida sugerida."]
+          ["Atividade real.", "Diga o que é feito na rotina, não apenas o que está previsto."],
+          ["Fluxo.", "Indique quem recebe, quem decide, quem encaminha, quem acompanha e como se encerra."],
+          ["Limite.", "Aponte o que deve depender de ciência, autorização, registro ou padronização."]
         ]
       },
       {
         pill: "3 de 3",
         progress: "PDF e envio",
         kicker: "Encaminhamento final",
-        title: "Ao final, revise, gere o PDF e envie ao Coordenador da DAI/2.",
-        subtitle: "A página organizará as respostas em PDF profissional, pronto para download e encaminhamento pelo WhatsApp.",
-        note: "No celular, o sistema tentará abrir o compartilhamento nativo. No desktop, baixe o PDF e anexe o arquivo no WhatsApp Web.",
+        title: "Revise, gere o PDF e envie ao Coordenador da DAI/2.",
+        subtitle: "Ao final, a página organizará suas respostas em PDF profissional, pronto para encaminhamento.",
+        note: "No celular, use o compartilhamento do aparelho. No desktop, baixe o PDF e anexe o arquivo no WhatsApp Web.",
         button: "Abrir pesquisa",
         items: [
           ["Revisão.", "Confira todas as respostas antes de gerar o arquivo."],
-          ["Envio.", `Encaminhe o PDF ao número ${CONFIG.whatsappDisplay}.`],
+          ["Envio.", `Encaminhe o PDF pelo WhatsApp do Coordenador da DAI/2: ${CONFIG.whatsappDisplay}.`],
           ["Rascunho.", "As respostas ficam salvas neste navegador para retomada posterior."]
         ]
       }
@@ -1367,16 +1912,15 @@
             number: 1,
             type: "radio",
             required: true,
-            label: "Órgão externo subordinado à DAI/2 representado:",
-            options: ["AFAS.", "ALMG.", "CEDEC.", "Colégio Tiradentes RMBH.", "Fundação SALVAR / Assessoria Fundacional.", "GMG.", "Intendência CAMG.", "MPMG.", "OGE.", "Secretaria Parlamentar.", "SEE.", "SEJUSP.", "SENASP/MJ.", "SES.", "TJMG.", "TJMMG.", "Outro."],
-            otherLabel: "Informe o órgão."
+            label: "Órgão externo ou área da DAI/2 representada:",
+            options: ["AFAS.", "ALMG.", "CEDEC.", "Colégio Tiradentes RMBH.", "Assessoria Fundacional.", "GMG.", "Intendência CAMG.", "MPMG.", "OGE.", "Secretaria Parlamentar.", "SEE.", "SEJUSP.", "SENASP/MJ.", "SES.", "TJMG.", "TJMMG.", "Coordenação da DAI/2."]
           },
           {
             id: "q2",
             number: 2,
             type: "radio",
             required: true,
-            label: "Qual é a principal finalidade da presença do CBMMG neste órgão externo subordinado à DAI/2?",
+            label: "Qual é a principal finalidade da presença do CBMMG neste órgão externo ou área representada?",
             options: ["Assessoramento institucional.", "Articulação estratégica.", "Defesa civil, crise ou desastre.", "Segurança institucional ou proteção de autoridade.", "Apoio à atividade legislativa ou parlamentar.", "Apoio à atividade judicial, ministerial ou correicional.", "Saúde, urgência/emergência ou apoio aeromédico.", "Educação, escola ou capacitação.", "Governança, controle, ouvidoria ou integridade.", "Logística, patrimônio ou apoio administrativo.", "Outra."],
             otherLabel: "Informe outra finalidade."
           },
@@ -1484,7 +2028,7 @@
       {
         id: "bloco6",
         title: "Bloco 6 — Riscos e proposta normativa",
-        microcopy: "A última etapa coleta o que deve ser mantido, alterado ou incluído na Resolução.",
+        microcopy: "Esta etapa coleta o que deve ser mantido, alterado ou incluído na Resolução.",
         questions: [
           { id: "q18", number: 18, type: "radio", required: true, label: "Há alguma prática atual que possa gerar risco jurídico, funcional, operacional, administrativo, político-institucional ou de imagem para o CBMMG?", options: ["Sim.", "Não.", "Não sei avaliar."] },
           { id: "q19", number: 19, type: "textarea", required: false, label: "Caso sim, descreva o risco e a solução normativa sugerida:", condition: { questionId: "q18", values: ["Sim."] } },
@@ -1493,6 +2037,21 @@
           { id: "q22", number: 22, type: "textarea", required: true, label: "O que a nova Resolução deve incluir?" },
           { id: "q23", number: 23, type: "textarea", required: false, label: "Apresente, se possível, sugestão de redação para artigo, inciso ou parágrafo:" },
           { id: "q24", number: 24, type: "text", required: true, label: "Em uma frase, qual é a principal melhoria que a nova Resolução deve trazer para a DAI/2, subordinada à DAI?" }
+        ]
+      },
+      {
+        id: "bloco7",
+        title: "Bloco 7 — Accountability, governança e compliance",
+        microcopy: "Aponte uma melhoria normativa que fortaleça responsabilidade, direção institucional e conformidade na atuação da DAI/2.",
+        questions: [
+          {
+            id: "q25",
+            number: 25,
+            type: "textarea",
+            required: true,
+            label: "Considerando accountability, governança e compliance, que regra, controle ou prática a nova Resolução deve prever para melhorar a atuação da DAI/2?",
+            hint: "Accountability significa responsabilidade com prestação de contas: deixar claro quem faz, quem decide, quem acompanha e como comprova. Governança significa organizar direção, papéis, fluxos, controles e tomada de decisão. Compliance significa agir em conformidade com normas, limites, ética, integridade, registros formais e prevenção de desvios. Responda indicando uma proposta objetiva para a nova Resolução."
+          }
         ]
       }
     ];
@@ -1514,6 +2073,7 @@
       gateSubtitle: document.getElementById("gateSubtitle"),
       gateNote: document.getElementById("gateNote"),
       gateList: document.getElementById("gateList"),
+      gateBackBtn: document.getElementById("gateBackBtn"),
       gateNextBtn: document.getElementById("gateNextBtn"),
       app: document.getElementById("app"),
       formCard: document.getElementById("formCard"),
@@ -1670,6 +2230,7 @@
         DOM.gateSubtitle.textContent = slide.subtitle;
         DOM.gateNote.textContent = slide.note;
         DOM.gateNextBtn.textContent = slide.button;
+        DOM.gateBackBtn.classList.toggle("hidden", STATE.gateStep === 0);
         DOM.gateList.innerHTML = slide.items.map((item, index) => `
           <li>
             <span class="list-index">${index + 1}</span>
@@ -1686,6 +2247,12 @@
         }
 
         Gate.openApp();
+      },
+
+      previous() {
+        if (STATE.gateStep === 0) return;
+        STATE.gateStep -= 1;
+        Gate.render();
       },
 
       openApp() {
@@ -2220,6 +2787,7 @@
       },
 
       bindStaticEvents() {
+        DOM.gateBackBtn.addEventListener("click", Gate.previous);
         DOM.gateNextBtn.addEventListener("click", Gate.next);
         DOM.nextBtn.addEventListener("click", FormEvents.nextStep);
         DOM.backBtn.addEventListener("click", FormEvents.previousStep);
