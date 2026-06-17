@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta Técnica DAI/2 — Revisão da Resolução</title>
+  <meta name="description" content="Consulta Técnica DAI/2 para revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2." />
+  <meta property="og:title" content="Consulta Técnica DAI/2" />
+  <meta property="og:description" content="Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2." />
+  <meta property="og:image" content="https://i.pinimg.com/736x/b8/d6/67/b8d667688c2c8e76c6d78313fcf14ee5.jpg" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    :root {
+      --ink-980: #050914;
+      --ink-950: #071225;
+      --ink-900: #0b1b36;
+      --blue-950: #081832;
+      --blue-900: #0b2146;
+      --blue-800: #123a72;
+      --blue-700: #1b4e91;
+      --red-700: #b32025;
+      --red-600: #cc3436;
+      --gold-700: #8a661d;
+      --gold-600: #a87c22;
+      --gold-500: #c49b41;
+      --gold-300: #ead28b;
+      --paper: #f6f2e8;
+      --paper-2: #faf7ef;
+      --white: #ffffff;
+      --gray-950: #111827;
+      --gray-850: #1b2433;
+      --gray-800: #1f2937;
+      --gray-700: #374151;
+      --gray-600: #4b5563;
+      --gray-500: #6b7280;
+      --gray-300: #d1d5db;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --gray-50: #f9fafb;
+      --success: #176c3a;
+      --danger: #991b1b;
+      --focus: rgba(196, 155, 65, 0.58);
+      --max-width: 1180px;
+      --radius-2xl: 34px;
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-float: 0 34px 90px rgba(5, 9, 20, 0.18);
+      --shadow-soft: 0 18px 46px rgba(7, 22, 47, 0.12);
+      --shadow-card: 0 10px 26px rgba(7, 22, 47, 0.08);
+      --transition: 180ms ease;
+      --hero-image: url("https://i.pinimg.com/736x/b8/d6/67/b8d667688c2c8e76c6d78313fcf14ee5.jpg");
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--gray-950);
+      background:
+        radial-gradient(circle at 8% -10%, rgba(196, 155, 65, 0.16), transparent 32%),
+        radial-gradient(circle at 88% 2%, rgba(18, 58, 114, 0.11), transparent 34%),
+        linear-gradient(180deg, #f7f8fb 0%, #edf1f7 100%);
+      line-height: 1.55;
+    }
+
+    button,
+    input,
+    textarea { font: inherit; }
+
+    button { border: 0; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden { display: none !important; }
+
+    .gate {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(20px, 4vw, 52px);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(196, 155, 65, 0.12), transparent 32%),
+        linear-gradient(135deg, #edf1f6 0%, #f7f8fb 100%);
+    }
+
+    .cover-stage {
+      width: min(1240px, 100%);
+      min-height: min(680px, calc(100svh - 72px));
+      display: grid;
+      grid-template-columns: minmax(340px, 0.46fr) 34px minmax(0, 0.86fr);
+      gap: 0;
+      align-items: stretch;
+      border-radius: clamp(20px, 2.7vw, 34px);
+      background: var(--white);
+      border: 1px solid rgba(7, 22, 47, 0.10);
+      box-shadow: 0 32px 80px rgba(7, 22, 47, 0.18);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .cover-stage::before { content: none; }
+
+    .cover-copy {
+      position: relative;
+      z-index: 2;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(14px, 2vw, 22px);
+      padding: clamp(28px, 4.1vw, 58px) clamp(24px, 3.8vw, 52px);
+      background: #ffffff;
+      border-radius: 0;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .cover-copy::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--red-700), var(--gold-500));
+    }
+
+    .cover-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      background: #eef2f7;
+      border: 0;
+      overflow: hidden;
+    }
+
+    .cover-image-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: clamp(16px, 2.6vw, 34px);
+      border-radius: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(238, 242, 247, 0.92));
+      border: 0;
+      box-shadow: none;
+    }
+
+    .cover-image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100svh - 126px);
+      object-fit: contain;
+      object-position: center;
+      border-radius: clamp(10px, 1.6vw, 20px);
+      filter: saturate(1.03) contrast(1.02);
+    }
+
+    .cover-divider {
+      position: relative;
+      z-index: 3;
+      background: var(--blue-950);
+      box-shadow: 14px 0 34px rgba(7, 22, 47, 0.12);
+    }
+
+    .cover-divider::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
+      border-left: 24px solid var(--gold-500);
+    }
+
+    .cover-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      color: var(--blue-950);
+      background: transparent;
+      border: 0;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .cover-kicker::before,
+    .section-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold-500);
+      box-shadow: 0 0 0 6px rgba(196, 155, 65, 0.14);
+    }
+
+    .cover-title {
+      margin: 0;
+      max-width: 610px;
+      color: var(--blue-950);
+      font-size: clamp(2.42rem, 4.8vw, 5.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.066em;
+      font-weight: 950;
+      text-transform: none;
+    }
+
+    .cover-title::after {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 4px;
+      margin-top: 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red-700), var(--gold-500));
+    }
+
+    .cover-subtitle {
+      margin: -2px 0 0;
+      max-width: 520px;
+      color: var(--gray-700);
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    .cover-note {
+      max-width: 520px;
+      margin: 0;
+      padding: 0;
+      border-left: 0;
+      color: var(--gray-600);
+      font-size: 0.96rem;
+    }
+
+    .cover-progress {
+      display: inline-flex;
+      width: fit-content;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-500);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.01em;
+    }
+
+    .progress-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--blue-950);
+      border: 1px solid rgba(8, 24, 50, 0.10);
+    }
+
+    .cover-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cover-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--gray-700);
+      font-size: 0.94rem;
+    }
+
+    .cover-list strong { color: var(--blue-950); }
+
+    .list-index {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(8, 24, 50, 0.07);
+      color: var(--blue-950);
+      font-weight: 950;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-950), var(--blue-800));
+      box-shadow: 0 14px 28px rgba(8, 24, 50, 0.20);
+    }
+
+    .btn-primary.alt {
+      background: linear-gradient(135deg, var(--red-700), #d23b38);
+      box-shadow: 0 14px 28px rgba(179, 32, 37, 0.22);
+    }
+
+    .btn-secondary {
+      color: var(--blue-950);
+      background: var(--white);
+      border: 1px solid rgba(209, 213, 219, 0.95);
+      box-shadow: 0 10px 22px rgba(7, 22, 47, 0.08);
+    }
+
+    .btn-dark {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-950), var(--blue-800));
+      box-shadow: 0 14px 28px rgba(7, 22, 47, 0.18);
+    }
+
+    .btn-ghost {
+      color: var(--blue-950);
+      background: transparent;
+      border: 1px solid rgba(16, 45, 92, 0.20);
+    }
+
+    .btn-danger {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--danger), var(--red-600));
+      box-shadow: 0 14px 28px rgba(153, 27, 27, 0.18);
+    }
+
+    .btn[disabled] {
+      opacity: 0.48;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .cover-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .page-shell { min-height: 100vh; }
+
+    .app-masthead {
+      position: relative;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(196, 155, 65, 0.18), transparent 30%),
+        linear-gradient(135deg, var(--blue-950), var(--blue-800));
+      overflow: hidden;
+    }
+
+    .app-masthead::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--red-700), var(--gold-500), var(--blue-700));
+    }
+
+    .app-masthead-inner {
+      width: min(var(--max-width), calc(100% - 36px));
+      margin: 0 auto;
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 28px;
+      align-items: center;
+      padding: 52px 0 92px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 8px 13px;
+      border: 1px solid rgba(234, 210, 139, 0.42);
+      border-radius: 999px;
+      color: #fff7dc;
+      background: rgba(255, 255, 255, 0.10);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .app-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold-300);
+      box-shadow: 0 0 0 6px rgba(234, 210, 139, 0.13);
+    }
+
+    .app-masthead h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(2.35rem, 5vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.058em;
+      font-weight: 950;
+    }
+
+    .app-masthead p {
+      max-width: 780px;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+    }
+
+    .masthead-mark {
+      aspect-ratio: 3 / 4;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .masthead-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+    }
+
+    .main {
+      width: min(var(--max-width), calc(100% - 36px));
+      margin: -62px auto 0;
+      position: relative;
+      z-index: 3;
+      padding-bottom: 48px;
+    }
+
+    .orientation-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .orientation-card,
+    .identity-card,
+    .form-card,
+    .review-card {
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(209, 213, 219, 0.78);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+    }
+
+    .orientation-card { padding: 26px 28px; }
+
+    .identity-card {
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,253,0.98));
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red-700);
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      margin-bottom: 10px;
+    }
+
+    .orientation-card h2,
+    .identity-card h2,
+    .form-title h2,
+    .review-card h2 {
+      margin: 0;
+      color: var(--blue-950);
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    .orientation-card h2 { font-size: clamp(1.45rem, 2vw, 2.08rem); }
+
+    .orientation-card p,
+    .identity-card p {
+      color: var(--gray-700);
+      margin: 12px 0 0;
+    }
+
+    .identity-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .identity-item {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--gray-700);
+      font-size: 0.95rem;
+    }
+
+    .identity-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 11px;
+      background: rgba(196, 155, 65, 0.18);
+      color: var(--blue-900);
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+    }
+
+    .draft-status {
+      margin-top: 16px;
+      display: none;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(23, 108, 58, 0.08);
+      border: 1px solid rgba(23, 108, 58, 0.20);
+      color: var(--gray-700);
+      font-weight: 750;
+      font-size: 0.94rem;
+    }
+
+    .draft-status.active { display: block; }
+
+    .form-card { overflow: hidden; }
+
+    .form-header {
+      background:
+        radial-gradient(circle at 8% 0%, rgba(234, 210, 139, 0.18), transparent 26%),
+        linear-gradient(135deg, var(--blue-950), var(--blue-800));
+      color: var(--white);
+      padding: 22px 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .progress-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      font-weight: 850;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--red-600), var(--gold-500));
+      transition: width 260ms ease;
+      border-radius: 999px;
+    }
+
+    .form-title {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-title h2 {
+      color: var(--white);
+      font-size: clamp(1.28rem, 2vw, 2rem);
+    }
+
+    .form-title p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      max-width: 850px;
+    }
+
+    .form-body { padding: 24px; }
+
+    .block-note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(196, 155, 65, 0.13), rgba(16, 45, 92, 0.06));
+      border: 1px solid rgba(196, 155, 65, 0.22);
+      color: var(--gray-700);
+    }
+
+    .block-note strong { color: var(--blue-950); }
+
+    .note-icon {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--red-700);
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      box-shadow: var(--shadow-card);
+    }
+
+    .autosave-note {
+      margin-bottom: 18px;
+      color: var(--gray-600);
+      font-size: 0.94rem;
+    }
+
+    .autosave-note strong { color: var(--success); }
+
+    .question {
+      padding: 18px;
+      border: 1px solid rgba(209, 213, 219, 0.84);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(7, 22, 47, 0.04);
+      margin-bottom: 16px;
+    }
+
+    .question.hidden { display: none; }
+
+    .question-title {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      color: var(--blue-950);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .required-mark {
+      color: var(--red-700);
+      font-weight: 950;
+    }
+
+    .hint {
+      margin: -2px 0 12px;
+      color: var(--gray-600);
+      font-size: 0.92rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid rgba(209, 213, 219, 0.94);
+      border-radius: 14px;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .option:hover {
+      transform: translateY(-1px);
+      border-color: rgba(18, 58, 114, 0.35);
+      background: var(--white);
+    }
+
+    .option input {
+      margin-top: 3px;
+      accent-color: var(--red-700);
+      min-width: 16px;
+      min-height: 16px;
+    }
+
+    .option-text { font-size: 0.96rem; }
+
+    textarea,
+    input[type="text"] {
+      width: 100%;
+      border: 1px solid rgba(209, 213, 219, 0.94);
+      border-radius: 14px;
+      background: var(--gray-50);
+      color: var(--gray-950);
+      padding: 13px 14px;
+      resize: vertical;
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    textarea { min-height: 136px; }
+
+    input[type="text"] { min-height: 48px; }
+
+    textarea:focus,
+    input[type="text"]:focus {
+      background: var(--white);
+      border-color: rgba(18, 58, 114, 0.44);
+      box-shadow: 0 0 0 4px rgba(18, 58, 114, 0.08);
+    }
+
+    .other-input-wrap {
+      display: none;
+      margin-top: 12px;
+    }
+
+    .other-input-wrap.visible {
+      display: block;
+      animation: fadeUp 180ms ease both;
+    }
+
+    .field-error {
+      display: none;
+      margin-top: 10px;
+      color: var(--danger);
+      font-weight: 850;
+      font-size: 0.9rem;
+    }
+
+    .question.invalid {
+      border-color: rgba(153, 27, 27, 0.55);
+      box-shadow: 0 0 0 4px rgba(153, 27, 27, 0.06);
+    }
+
+    .question.invalid .field-error { display: block; }
+
+    .form-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(209, 213, 219, 0.82);
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .review-card {
+      display: none;
+      padding: 26px;
+      margin-top: 22px;
+    }
+
+    .review-card.active {
+      display: block;
+      animation: fadeUp 240ms ease both;
+    }
+
+    .review-top {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .review-top p {
+      color: var(--gray-700);
+      margin: 0;
+    }
+
+    .review-section {
+      border: 1px solid rgba(209, 213, 219, 0.84);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--white);
+    }
+
+    .review-section h3 {
+      margin: 0;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(16, 45, 92, 0.08), rgba(196, 155, 65, 0.13));
+      color: var(--blue-950);
+      font-size: 1.04rem;
+    }
+
+    .review-item {
+      padding: 14px 16px;
+      border-top: 1px solid rgba(209, 213, 219, 0.7);
+    }
+
+    .review-question {
+      font-weight: 850;
+      color: var(--blue-950);
+      margin-bottom: 6px;
+    }
+
+    .review-answer {
+      color: var(--gray-800);
+      white-space: pre-wrap;
+    }
+
+    .empty-answer {
+      color: var(--gray-500);
+      font-style: italic;
+    }
+
+    .delivery-status {
+      display: none;
+      margin-top: 16px;
+      padding: 13px 15px;
+      border-radius: 16px;
+      background: rgba(23, 108, 58, 0.08);
+      border: 1px solid rgba(23, 108, 58, 0.20);
+      color: var(--gray-800);
+      font-weight: 750;
+    }
+
+    .delivery-status.active {
+      display: block;
+      animation: fadeUp 220ms ease both;
+    }
+
+    .delivery-actions {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .delivery-actions.active { display: flex; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%) translateY(20px);
+      min-width: min(560px, calc(100% - 32px));
+      padding: 14px 16px;
+      background: var(--blue-950);
+      color: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 18px 45px rgba(7, 22, 47, 0.24);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 50;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(3, 11, 26, 0.64);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-card {
+      width: min(460px, 100%);
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(209, 213, 219, 0.90);
+      padding: 22px;
+    }
+
+    .modal-card h2 {
+      margin: 0;
+      color: var(--blue-950);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      font-size: 1.42rem;
+    }
+
+    .modal-card p {
+      margin: 10px 0 0;
+      color: var(--gray-700);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .footer {
+      padding: 34px 16px;
+      text-align: center;
+      color: rgba(255,255,255,0.78);
+      background: var(--blue-950);
+      border-top: 6px solid var(--red-700);
+    }
+
+    .footer strong { color: var(--white); }
+
+    .footer p { margin: 5px 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1080px) {
+      .cover-stage {
+        grid-template-columns: minmax(300px, 0.52fr) 28px minmax(0, 0.76fr);
+        min-height: min(620px, calc(100svh - 48px));
+      }
+
+      .cover-copy { padding: clamp(24px, 3.4vw, 40px); }
+      .cover-title { font-size: clamp(2.2rem, 4.7vw, 4.2rem); }
+      .cover-image-frame { min-height: 500px; }
+    }
+
+    @media (max-width: 900px) {
+      .app-masthead-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .masthead-mark { display: none; }
+
+      .orientation-grid { grid-template-columns: 1fr; }
+
+      .options-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 780px) {
+      .gate {
+        place-items: start center;
+      }
+
+      .cover-stage {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .cover-divider { display: none; }
+
+      .cover-visual {
+        order: 1;
+      }
+
+      .cover-copy {
+        order: 2;
+        min-height: auto;
+      }
+
+      .cover-image-frame {
+        min-height: 360px;
+        height: auto;
+      }
+
+      .cover-image-frame img {
+        height: auto;
+        max-height: 46svh;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .gate {
+        padding: 12px;
+        place-items: start center;
+      }
+
+      .cover-stage {
+        width: 100%;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        border-radius: 22px;
+      }
+
+      .cover-divider { display: none; }
+
+      .cover-visual {
+        order: 1;
+        min-height: auto;
+      }
+
+      .cover-image-frame {
+        min-height: 310px;
+        height: auto;
+        padding: 14px;
+      }
+
+      .cover-image-frame img {
+        height: auto;
+        max-height: 42svh;
+      }
+
+      .cover-copy {
+        order: 2;
+        min-height: auto;
+        padding: 24px 22px 26px;
+        gap: 15px;
+      }
+
+      .cover-title {
+        font-size: clamp(2.05rem, 12vw, 3.35rem);
+        letter-spacing: -0.058em;
+      }
+
+      .cover-title::after {
+        width: 58px;
+        margin-top: 14px;
+      }
+
+      .cover-subtitle { font-size: 1rem; }
+
+      .cover-list li { grid-template-columns: 30px 1fr; }
+
+      .list-index {
+        width: 30px;
+        height: 30px;
+      }
+
+      .cover-actions,
+      .nav-left,
+      .nav-right,
+      .delivery-actions,
+      .modal-actions { display: grid; }
+
+      .btn {
+        width: 100%;
+        white-space: normal;
+      }
+
+      .app-masthead-inner {
+        width: min(100% - 24px, var(--max-width));
+        padding: 42px 0 82px;
+      }
+
+      .main {
+        width: min(100% - 20px, var(--max-width));
+        margin-top: -56px;
+      }
+
+      .orientation-card,
+      .identity-card,
+      .form-body,
+      .review-card { padding: 18px; }
+
+      .form-header { padding: 18px; }
+
+      .progress-wrap { grid-template-columns: 1fr; }
+
+      .form-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="gate" id="gate" aria-label="Boas-vindas e orientação inicial">
+    <div class="cover-stage">
+      <div class="cover-copy">
+        <div class="cover-progress" id="gateProgress">
+          <span class="progress-pill">Início</span>
+          <span>Boas-vindas institucional</span>
+        </div>
+
+        <p class="cover-kicker" id="gateKicker">DAI/2 · Consulta técnica</p>
+        <h1 class="cover-title" id="gateTitle">Consulta Técnica DAI/2</h1>
+        <p class="cover-subtitle" id="gateSubtitle">Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2.</p>
+        <p class="cover-note" id="gateNote">Antes do preenchimento, a página apresentará uma orientação breve para padronizar as respostas e facilitar a geração do PDF final.</p>
+
+        <ul class="cover-list" id="gateList">
+          <li><span class="list-index">1</span><span><strong>Caminho único.</strong> Primeiro a orientação, depois o formulário.</span></li>
+          <li><span class="list-index">2</span><span><strong>Foco normativo.</strong> Responda pensando em competência, fluxo, limite, controle e melhoria da Resolução.</span></li>
+        </ul>
+
+        <div class="cover-actions">
+          <button class="btn btn-primary alt" type="button" id="gateNextBtn">Seguir</button>
+        </div>
+      </div>
+
+      <div class="cover-divider" aria-hidden="true"></div>
+
+      <figure class="cover-visual" aria-label="Imagem institucional da Consulta Técnica DAI/2">
+        <div class="cover-image-frame">
+          <img src="https://i.pinimg.com/736x/b8/d6/67/b8d667688c2c8e76c6d78313fcf14ee5.jpg" alt="Composição visual institucional para a Consulta Técnica DAI/2" />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="page-shell hidden" id="app">
+    <header class="app-masthead" role="banner">
+      <div class="app-masthead-inner">
+        <div>
+          <div class="app-eyebrow">Diretoria de Assuntos Institucionais</div>
+          <h1>Pesquisa técnica liberada</h1>
+          <p>Preencha as etapas com objetividade. As respostas serão organizadas em revisão final e convertidas em PDF para encaminhamento ao Coordenador da DAI/2.</p>
+          <div class="draft-status" id="draftStatus"></div>
+        </div>
+        <div class="masthead-mark" aria-hidden="true">
+          <img src="https://i.pinimg.com/736x/b8/d6/67/b8d667688c2c8e76c6d78313fcf14ee5.jpg" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <main class="main" id="main">
+      <section class="orientation-grid" aria-label="Orientações da consulta">
+        <article class="orientation-card">
+          <div class="section-label">Foco normativo</div>
+          <h2>Responda apenas o que pode melhorar a Resolução.</h2>
+          <p>Priorize informações que ajudem a definir competência, fluxo, limite, controle ou melhoria normativa.</p>
+          <p>O formulário não coleta nome, telefone, posto ou graduação. O dado útil é institucional: órgão, interface, competência, demanda, risco e proposta normativa.</p>
+        </article>
+
+        <aside class="identity-card">
+          <div class="section-label">Identidade CBMMG</div>
+          <h2>Proteção à vida, ao meio ambiente e ao patrimônio.</h2>
+          <div class="identity-list">
+            <div class="identity-item"><span class="identity-icon">1</span><span><strong>Missão:</strong> servir à sociedade mineira por meio da defesa civil, prevenção, combate a incêndio, perícias, busca, salvamento e normas de segurança.</span></div>
+            <div class="identity-item"><span class="identity-icon">2</span><span><strong>Propósito:</strong> salvar e valorizar vidas, inspirar pessoas e levar esperança.</span></div>
+            <div class="identity-item"><span class="identity-icon">3</span><span><strong>Valores:</strong> hierarquia, disciplina, ética, probidade, efetividade, imparcialidade e transparência.</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="form-card" id="formCard" aria-label="Formulário da consulta">
+        <header class="form-header">
+          <div class="progress-wrap">
+            <div class="progress-bar" aria-label="Progresso do formulário">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Etapa 1 de 7</div>
+          </div>
+          <div class="form-title">
+            <h2 id="stepTitle">Carregando...</h2>
+            <p id="stepMicrocopy">Carregando...</p>
+          </div>
+        </header>
+
+        <div class="form-body">
+          <div class="block-note">
+            <span class="note-icon">!</span>
+            <div><strong>Responda com foco normativo.</strong> Priorize informações que ajudem a definir competência, fluxo, limite, controle ou melhoria normativa.</div>
+          </div>
+
+          <p class="autosave-note"><strong>Salvamento automático ativo.</strong> As respostas são salvas automaticamente neste navegador.</p>
+          <form id="consultationForm" novalidate></form>
+
+          <nav class="form-nav" aria-label="Navegação do formulário">
+            <div class="nav-left">
+              <button class="btn btn-secondary" type="button" id="backBtn">Voltar etapa</button>
+            </div>
+            <div class="nav-right">
+              <button class="btn btn-primary alt" type="button" id="nextBtn">Avançar etapa</button>
+            </div>
+          </nav>
+        </div>
+      </section>
+
+      <section class="review-card" id="reviewCard" aria-label="Revisão final">
+        <div class="review-top">
+          <div class="section-label">Revisão final</div>
+          <h2>Confira as respostas antes de gerar o PDF.</h2>
+          <p>O PDF será gerado em formato A4, com identidade visual institucional, paginação, margens adequadas e respostas agrupadas por bloco.</p>
+        </div>
+
+        <div id="reviewContent"></div>
+
+        <div class="form-nav">
+          <div class="nav-left">
+            <button class="btn btn-secondary" type="button" id="editBtn">Voltar para editar</button>
+            <button class="btn btn-ghost" type="button" id="clearReviewBtn">Limpar respostas</button>
+          </div>
+          <div class="nav-right">
+            <button class="btn btn-primary alt" type="button" id="generatePdfBtn">Gerar PDF e iniciar envio</button>
+          </div>
+        </div>
+
+        <div class="delivery-status" id="deliveryStatus"></div>
+        <div class="delivery-actions" id="deliveryActions">
+          <button class="btn btn-dark" type="button" id="downloadPdfBtn">Baixar PDF novamente</button>
+          <a class="btn btn-secondary" id="whatsappBtn" href="#" target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><strong>Corpo de Bombeiros Militar de Minas Gerais</strong></p>
+      <p>Diretoria de Assuntos Institucionais — DAI | DAI/2 — Órgãos Externos</p>
+      <p>Consulta Técnica para Revisão Normativa — 2026</p>
+    </footer>
+  </div>
+
+  <div class="modal-overlay hidden" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle" aria-describedby="confirmModalText">
+    <div class="modal-card">
+      <h2 id="confirmModalTitle">Limpar respostas?</h2>
+      <p id="confirmModalText">Esta ação removerá as respostas salvas neste navegador. A operação não poderá ser desfeita.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" type="button" id="cancelClearBtn">Cancelar</button>
+        <button class="btn btn-danger" type="button" id="confirmClearBtn">Limpar respostas</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const CONFIG = {
+      storageKey: "consultaTecnicaDAI2_estado_banner_modelo_profissional",
+      legacyStorageKey: "consultaTecnicaDAI2_estado_final",
+      draftRetentionDays: 90,
+      whatsappNumber: "5535984640729",
+      whatsappDisplay: "(35) 98464-0729",
+      whatsappMessage: "Segue PDF da Consulta Técnica DAI/2 — Revisão da Resolução.",
+      pdfTitle: "Consulta Técnica aos Assessores Militares Chefes — Revisão da Resolução da DAI/2",
+      pdfSubtitle: "Diretoria de Assuntos Institucionais — DAI | DAI/2 — Órgãos Externos",
+      pdfFooter: "CBMMG | DAI/2 | Consulta Técnica para Revisão Normativa",
+      copy: {
+        pdfLoadError: "Não foi possível carregar o gerador de PDF. Verifique a conexão e tente novamente.",
+        requiredError: "Preencha os campos obrigatórios antes de avançar.",
+        clearSuccess: "Respostas removidas.",
+        shareMobileSuccess: "PDF gerado. Selecione o WhatsApp e encaminhe o arquivo para o número indicado.",
+        shareDesktopSuccess: "PDF baixado. O WhatsApp Web foi aberto. Anexe o arquivo baixado e envie para o número indicado.",
+        shareCancelled: "Envio cancelado. O PDF permanece disponível para download.",
+        pdfGenerated: "PDF gerado. Conclua o envio pelo WhatsApp."
+      }
+    };
+
+    const ONBOARDING = [
+      {
+        pill: "Início",
+        progress: "Boas-vindas institucional",
+        kicker: "DAI/2 · Consulta técnica",
+        title: "Consulta Técnica DAI/2",
+        subtitle: "Revisão da Resolução da Diretoria de Assuntos Institucionais — DAI, com foco nos órgãos externos subordinados à DAI/2.",
+        note: "Antes do preenchimento, a página apresentará uma orientação breve para padronizar as respostas e facilitar a geração do PDF final.",
+        button: "Seguir",
+        items: [
+          ["Caminho único.", "Primeiro a orientação, depois o formulário."],
+          ["Foco normativo.", "Responda pensando em competência, fluxo, limite, controle e melhoria da Resolução."]
+        ]
+      },
+      {
+        pill: "1 de 3",
+        progress: "Finalidade da consulta",
+        kicker: "Orientação inicial",
+        title: "Respostas para revisar a norma, não para cadastro pessoal.",
+        subtitle: "A consulta reúne informações institucionais dos órgãos externos subordinados à DAI/2 para atualizar a parte da Resolução referente à DAI, Diretoria de Assuntos Institucionais.",
+        note: "Não informe dados pessoais. O foco é a atuação institucional do órgão e da interface com o CBMMG.",
+        button: "Seguir",
+        items: [
+          ["Órgão.", "Indique a instituição representada."],
+          ["Utilidade.", "Mostre como a interface apoia decisão, articulação, controle ou proteção institucional."]
+        ]
+      },
+      {
+        pill: "2 de 3",
+        progress: "Como responder",
+        kicker: "Utilidade normativa",
+        title: "Escreva para transformar prática em regra clara.",
+        subtitle: "As melhores respostas indicam o que deve ser mantido, alterado, incluído, limitado ou formalizado.",
+        note: "Prefira frases objetivas. Quando houver risco, descreva também a solução normativa sugerida.",
+        button: "Seguir",
+        items: [
+          ["Atividade real.", "Descreva o que o Assessor Militar chefe efetivamente faz no órgão."],
+          ["Fluxo e limite.", "Indique o que passa pela DAI/2, o que pode ser resolvido diretamente e o que exige autorização."],
+          ["Risco e solução.", "Informe risco jurídico, funcional, operacional ou institucional e a medida sugerida."]
+        ]
+      },
+      {
+        pill: "3 de 3",
+        progress: "PDF e envio",
+        kicker: "Encaminhamento final",
+        title: "Ao final, revise, gere o PDF e envie ao Coordenador da DAI/2.",
+        subtitle: "A página organizará as respostas em PDF profissional, pronto para download e encaminhamento pelo WhatsApp.",
+        note: "No celular, o sistema tentará abrir o compartilhamento nativo. No desktop, baixe o PDF e anexe o arquivo no WhatsApp Web.",
+        button: "Abrir pesquisa",
+        items: [
+          ["Revisão.", "Confira todas as respostas antes de gerar o arquivo."],
+          ["Envio.", `Encaminhe o PDF ao número ${CONFIG.whatsappDisplay}.`],
+          ["Rascunho.", "As respostas ficam salvas neste navegador para retomada posterior."]
+        ]
+      }
+    ];
+
+    const FORM_SCHEMA = [
+      {
+        id: "bloco1",
+        title: "Bloco 1 — Órgão e interface institucional",
+        microcopy: "Informe qual órgão externo subordinado à DAI/2 está sendo representado e qual é a utilidade institucional da interface com o CBMMG.",
+        questions: [
+          {
+            id: "q1",
+            number: 1,
+            type: "radio",
+            required: true,
+            label: "Órgão externo subordinado à DAI/2 representado:",
+            options: ["AFAS.", "ALMG.", "CEDEC.", "Colégio Tiradentes RMBH.", "Fundação SALVAR / Assessoria Fundacional.", "GMG.", "Intendência CAMG.", "MPMG.", "OGE.", "Secretaria Parlamentar.", "SEE.", "SEJUSP.", "SENASP/MJ.", "SES.", "TJMG.", "TJMMG.", "Outro."],
+            otherLabel: "Informe o órgão."
+          },
+          {
+            id: "q2",
+            number: 2,
+            type: "radio",
+            required: true,
+            label: "Qual é a principal finalidade da presença do CBMMG neste órgão externo subordinado à DAI/2?",
+            options: ["Assessoramento institucional.", "Articulação estratégica.", "Defesa civil, crise ou desastre.", "Segurança institucional ou proteção de autoridade.", "Apoio à atividade legislativa ou parlamentar.", "Apoio à atividade judicial, ministerial ou correicional.", "Saúde, urgência/emergência ou apoio aeromédico.", "Educação, escola ou capacitação.", "Governança, controle, ouvidoria ou integridade.", "Logística, patrimônio ou apoio administrativo.", "Outra."],
+            otherLabel: "Informe outra finalidade."
+          },
+          {
+            id: "q3",
+            number: 3,
+            type: "checkbox",
+            required: true,
+            label: "Qual benefício institucional essa interface gera ou pode gerar ao CBMMG?",
+            options: ["Acesso mais rápido a decisões estratégicas.", "Melhor articulação com o órgão externo.", "Apoio à missão constitucional do CBMMG.", "Apoio à proteção da vida, do patrimônio ou do meio ambiente.", "Apoio à defesa civil ou gestão de crises.", "Apoio à prevenção contra incêndio e pânico.", "Apoio à formulação de políticas públicas.", "Apoio à captação de recursos ou parcerias.", "Apoio à imagem institucional.", "Produção de informações úteis ao Comando.", "Outro."],
+            otherLabel: "Informe outro benefício institucional."
+          }
+        ]
+      },
+      {
+        id: "bloco2",
+        title: "Bloco 2 — Atribuições que devem constar na Resolução",
+        microcopy: "Descreva o que o Assessor Militar chefe realmente faz e o que precisa virar competência normativa.",
+        questions: [
+          { id: "q4", number: 4, type: "textarea", required: true, label: "Quais são as principais atividades realmente exercidas pelo Assessor Militar chefe no órgão?", hint: "Liste até 5 atividades, com verbo no início. Exemplo: assessorar, articular, acompanhar, representar, coordenar, informar, encaminhar, registrar." },
+          { id: "q5", number: 5, type: "textarea", required: true, label: "Quais dessas atividades devem constar expressamente na nova Resolução?" },
+          {
+            id: "q6",
+            number: 6,
+            type: "checkbox",
+            required: true,
+            label: "Quais competências da DAI/2, subordinada à DAI, precisam estar expressas na nova Resolução?",
+            options: ["Coordenar o efetivo disponibilizado aos órgãos externos.", "Controlar efetivo previsto, existente e claro.", "Manter relação atualizada dos órgãos, militares e instrumentos formais.", "Receber e triar demandas dos órgãos externos.", "Encaminhar demandas às Unidades competentes do CBMMG.", "Acompanhar a resposta das Unidades às demandas externas.", "Manter fluxo documental formal, preferencialmente via SEI.", "Consolidar relatórios dos órgãos externos.", "Acompanhar riscos institucionais.", "Promover reuniões periódicas com Assessores Militares chefes.", "Assessorar a Diretoria de Assuntos Institucionais — DAI em reuniões com dirigentes dos órgãos externos.", "Propor NGA, fluxos e modelos padronizados.", "Outra."],
+            otherLabel: "Informe outra competência da DAI/2."
+          },
+          {
+            id: "q7",
+            number: 7,
+            type: "checkbox",
+            required: true,
+            label: "Quais atribuições do Assessor Militar chefe precisam estar expressas na nova Resolução?",
+            options: ["Atuar como ligação institucional entre o órgão externo e o CBMMG.", "Assessorar a chefia do órgão em assuntos compatíveis com a missão do CBMMG.", "Manter a DAI/2 informada sobre demandas relevantes.", "Receber, registrar e encaminhar demandas do órgão externo ao CBMMG.", "Acompanhar demandas em tramitação.", "Representar institucionalmente o CBMMG quando autorizado.", "Apoiar solenidades, agendas e reuniões institucionais.", "Articular apoio técnico com Unidades do CBMMG, conforme fluxo definido.", "Comunicar fatos sensíveis, riscos ou demandas estratégicas.", "Elaborar relatório mensal à DAI/2.", "Observar sigilo, imparcialidade, hierarquia e disciplina.", "Cumprir NGA específica dos órgãos externos.", "Outra."],
+            otherLabel: "Informe outra atribuição."
+          }
+        ]
+      },
+      {
+        id: "bloco3",
+        title: "Bloco 3 — Limites de atuação",
+        microcopy: "Indique o que precisa ter limite claro para proteger a Corporação, o órgão externo e o próprio Assessor Militar.",
+        questions: [
+          { id: "q8", number: 8, type: "radio", required: true, label: "Há alguma atividade hoje exercida que deveria ser proibida, limitada ou condicionada à autorização da DAI?", options: ["Sim.", "Não.", "Não sei avaliar."] },
+          { id: "q9", number: 9, type: "textarea", required: false, label: "Caso sim, indique a atividade, o motivo e a regra sugerida:", hint: "Responder no formato: atividade — risco — solução normativa.", condition: { questionId: "q8", values: ["Sim."] } },
+          {
+            id: "q10",
+            number: 10,
+            type: "checkbox",
+            required: true,
+            label: "Quais temas precisam de limite mais claro na Resolução?",
+            options: ["Subordinação militar à DAI/2, subordinada à DAI.", "Relação funcional com a chefia do órgão externo.", "Contato direto com Unidades do CBMMG.", "Representação institucional do CBMMG.", "Participação em eventos e solenidades.", "Uso de farda.", "Segurança de autoridade.", "Cerimonial.", "Produção ou assinatura de documentos.", "Tratamento de informações sensíveis.", "Atividades administrativas internas do órgão externo.", "Atividades estranhas à missão do CBMMG.", "Acionamento operacional.", "REDS.", "Outro."],
+            otherLabel: "Informe outro tema."
+          }
+        ]
+      },
+      {
+        id: "bloco4",
+        title: "Bloco 4 — Fluxo de demandas",
+        microcopy: "A Resolução precisa deixar claro o caminho das demandas entre órgão externo subordinado à DAI/2, DAI/2, DAI e Unidades do CBMMG.",
+        questions: [
+          {
+            id: "q11",
+            number: 11,
+            type: "checkbox",
+            required: true,
+            label: "Quais demandas do órgão externo ao CBMMG são mais frequentes?",
+            options: ["Reunião institucional.", "Apoio técnico.", "Apoio operacional.", "Apoio administrativo.", "Apoio em evento ou solenidade.", "Segurança institucional.", "Proteção de autoridade.", "Capacitação ou palestra.", "Defesa civil.", "Prevenção contra incêndio e pânico.", "Vistoria, orientação ou regularização.", "Solicitação de dados ou informações.", "Articulação com Unidade do CBMMG.", "Apoio em projeto, programa ou política pública.", "Outra."],
+            otherLabel: "Informe outra demanda."
+          },
+          { id: "q12", number: 12, type: "textarea", required: true, label: "Quais demandas devem obrigatoriamente passar pela DAI/2 antes de serem encaminhadas a qualquer Unidade do CBMMG?" },
+          { id: "q13", number: 13, type: "textarea", required: true, label: "Quais demandas podem ser resolvidas diretamente pelo Assessor Militar chefe, sem tramitação prévia pela DAI/2?" },
+          { id: "q14", number: 14, type: "textarea", required: true, label: "Qual deve ser o fluxo padrão de uma demanda do órgão externo subordinado à DAI/2 ao CBMMG?", hint: "Indique a sequência ideal: recebimento, análise inicial, registro, comunicação à DAI/2, ciência ou deliberação da DAI quando necessário, encaminhamento à Unidade competente, acompanhamento, resposta ao órgão e arquivamento." }
+        ]
+      },
+      {
+        id: "bloco5",
+        title: "Bloco 5 — Informação, controle e gestão",
+        microcopy: "A DAI/2 precisa transformar a presença nos órgãos externos subordinados à sua coordenação em informação de gestão, controle e assessoramento à DAI e ao Comando.",
+        questions: [
+          {
+            id: "q15",
+            number: 15,
+            type: "checkbox",
+            required: true,
+            label: "Quais informações devem ser enviadas mensalmente à DAI/2?",
+            options: ["Efetivo existente.", "Claro existente.", "Alteração de efetivo.", "Demandas recebidas.", "Demandas encaminhadas ao CBMMG.", "Demandas concluídas.", "Demandas pendentes.", "Reuniões realizadas.", "Eventos acompanhados.", "Apoios prestados por Unidades do CBMMG.", "REDS lavrados.", "Documentos SEI relevantes.", "Fatos sensíveis.", "Riscos institucionais.", "Boas práticas.", "Necessidade de apoio da DAI/2.", "Oportunidades institucionais para o CBMMG.", "Outra."],
+            otherLabel: "Informe outra informação."
+          },
+          {
+            id: "q16",
+            number: 16,
+            type: "checkbox",
+            required: true,
+            label: "Quais indicadores a DAI/2 deve acompanhar?",
+            options: ["Efetivo previsto por órgão.", "Efetivo existente por órgão.", "Claro por órgão.", "Claro por posto/graduação.", "Tempo de permanência no órgão.", "Demandas recebidas.", "Demandas concluídas.", "Demandas pendentes.", "Tempo de resposta.", "Apoios prestados por Unidades do CBMMG.", "Reuniões institucionais realizadas.", "Eventos acompanhados.", "REDS lavrados.", "Riscos institucionais registrados.", "Oportunidades institucionais identificadas.", "Outro."],
+            otherLabel: "Informe outro indicador."
+          },
+          { id: "q17", number: 17, type: "radio", required: true, label: "A Resolução deve prever relatório mensal padronizado dos Assessores Militares chefes?", options: ["Sim.", "Não.", "Não sei avaliar."] }
+        ]
+      },
+      {
+        id: "bloco6",
+        title: "Bloco 6 — Riscos e proposta normativa",
+        microcopy: "A última etapa coleta o que deve ser mantido, alterado ou incluído na Resolução.",
+        questions: [
+          { id: "q18", number: 18, type: "radio", required: true, label: "Há alguma prática atual que possa gerar risco jurídico, funcional, operacional, administrativo, político-institucional ou de imagem para o CBMMG?", options: ["Sim.", "Não.", "Não sei avaliar."] },
+          { id: "q19", number: 19, type: "textarea", required: false, label: "Caso sim, descreva o risco e a solução normativa sugerida:", condition: { questionId: "q18", values: ["Sim."] } },
+          { id: "q20", number: 20, type: "textarea", required: true, label: "O que a nova Resolução deve manter na parte referente à DAI, à DAI/2 e aos Assessores Militares?" },
+          { id: "q21", number: 21, type: "textarea", required: true, label: "O que a nova Resolução deve alterar?" },
+          { id: "q22", number: 22, type: "textarea", required: true, label: "O que a nova Resolução deve incluir?" },
+          { id: "q23", number: 23, type: "textarea", required: false, label: "Apresente, se possível, sugestão de redação para artigo, inciso ou parágrafo:" },
+          { id: "q24", number: 24, type: "text", required: true, label: "Em uma frase, qual é a principal melhoria que a nova Resolução deve trazer para a DAI/2, subordinada à DAI?" }
+        ]
+      }
+    ];
+
+    const STATE = {
+      currentStep: 0,
+      gateStep: 0,
+      answers: {},
+      generatedPdfBlobUrl: null,
+      generatedPdfFile: null,
+      generatedPdfDoc: null
+    };
+
+    const DOM = {
+      gate: document.getElementById("gate"),
+      gateProgress: document.getElementById("gateProgress"),
+      gateKicker: document.getElementById("gateKicker"),
+      gateTitle: document.getElementById("gateTitle"),
+      gateSubtitle: document.getElementById("gateSubtitle"),
+      gateNote: document.getElementById("gateNote"),
+      gateList: document.getElementById("gateList"),
+      gateNextBtn: document.getElementById("gateNextBtn"),
+      app: document.getElementById("app"),
+      formCard: document.getElementById("formCard"),
+      form: document.getElementById("consultationForm"),
+      stepTitle: document.getElementById("stepTitle"),
+      stepMicrocopy: document.getElementById("stepMicrocopy"),
+      progressFill: document.getElementById("progressFill"),
+      progressText: document.getElementById("progressText"),
+      backBtn: document.getElementById("backBtn"),
+      nextBtn: document.getElementById("nextBtn"),
+      reviewCard: document.getElementById("reviewCard"),
+      reviewContent: document.getElementById("reviewContent"),
+      editBtn: document.getElementById("editBtn"),
+      generatePdfBtn: document.getElementById("generatePdfBtn"),
+      downloadPdfBtn: document.getElementById("downloadPdfBtn"),
+      whatsappBtn: document.getElementById("whatsappBtn"),
+      deliveryStatus: document.getElementById("deliveryStatus"),
+      deliveryActions: document.getElementById("deliveryActions"),
+      clearReviewBtn: document.getElementById("clearReviewBtn"),
+      toast: document.getElementById("toast"),
+      draftStatus: document.getElementById("draftStatus"),
+      confirmModal: document.getElementById("confirmModal"),
+      cancelClearBtn: document.getElementById("cancelClearBtn"),
+      confirmClearBtn: document.getElementById("confirmClearBtn")
+    };
+
+    const Utils = {
+      escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      },
+
+      isOtherOption(option) {
+        return option === "Outro." || option === "Outra.";
+      },
+
+      allQuestions() {
+        return FORM_SCHEMA.flatMap(step => step.questions.map(question => ({ ...question, blockTitle: step.title })));
+      },
+
+      isMobileLikeDevice() {
+        const hasTouch = navigator.maxTouchPoints && navigator.maxTouchPoints > 1;
+        const smallScreen = window.matchMedia("(max-width: 820px)").matches;
+        const ua = navigator.userAgent.toLowerCase();
+        return hasTouch || smallScreen || /android|iphone|ipad|ipod/.test(ua);
+      },
+
+      scrollToElement(element) {
+        element?.scrollIntoView({ behavior: "smooth", block: "start" });
+      },
+
+      showToast(message) {
+        DOM.toast.textContent = message;
+        DOM.toast.classList.add("show");
+        window.clearTimeout(Utils.showToast.timeout);
+        Utils.showToast.timeout = window.setTimeout(() => DOM.toast.classList.remove("show"), 3600);
+      }
+    };
+
+    const StorageService = {
+      async requestPersistentStorage() {
+        if (navigator.storage && navigator.storage.persist) {
+          try { await navigator.storage.persist(); } catch {}
+        }
+      },
+
+      getPayload() {
+        return {
+          answers: STATE.answers,
+          currentStep: STATE.currentStep,
+          gateStep: STATE.gateStep,
+          updatedAt: new Date().toISOString()
+        };
+      },
+
+      save() {
+        localStorage.setItem(CONFIG.storageKey, JSON.stringify(StorageService.getPayload()));
+        StorageService.updateDraftStatus();
+      },
+
+      load() {
+        const raw = localStorage.getItem(CONFIG.storageKey) || localStorage.getItem(CONFIG.legacyStorageKey);
+        if (!raw) return;
+
+        try {
+          const saved = JSON.parse(raw);
+          if (!saved || !saved.updatedAt) return;
+
+          const updatedAt = new Date(saved.updatedAt);
+          const ageMs = Date.now() - updatedAt.getTime();
+          const maxAgeMs = CONFIG.draftRetentionDays * 24 * 60 * 60 * 1000;
+
+          if (ageMs > maxAgeMs) {
+            localStorage.removeItem(CONFIG.storageKey);
+            localStorage.removeItem(CONFIG.legacyStorageKey);
+            return;
+          }
+
+          STATE.answers = saved.answers || {};
+          STATE.currentStep = Number.isInteger(saved.currentStep) ? Math.min(Math.max(saved.currentStep, 0), FORM_SCHEMA.length - 1) : 0;
+          STATE.gateStep = 0;
+          StorageService.updateDraftStatus();
+        } catch {
+          STATE.answers = {};
+          STATE.currentStep = 0;
+          STATE.gateStep = 0;
+        }
+      },
+
+      updateDraftStatus() {
+        try {
+          const raw = localStorage.getItem(CONFIG.storageKey) || localStorage.getItem(CONFIG.legacyStorageKey);
+          if (!raw) {
+            DOM.draftStatus.classList.remove("active");
+            return;
+          }
+
+          const saved = JSON.parse(raw);
+          const updatedAt = saved?.updatedAt ? new Date(saved.updatedAt) : null;
+          if (!updatedAt || Object.keys(saved.answers || {}).length === 0) {
+            DOM.draftStatus.classList.remove("active");
+            return;
+          }
+
+          const formatted = updatedAt.toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
+          DOM.draftStatus.textContent = `Rascunho salvo automaticamente em ${formatted}. O preenchimento será retomado neste navegador.`;
+          DOM.draftStatus.classList.add("active");
+        } catch {
+          DOM.draftStatus.classList.remove("active");
+        }
+      },
+
+      clear() {
+        STATE.answers = {};
+        STATE.currentStep = 0;
+        STATE.gateStep = 0;
+        PdfService.clearGeneratedFile();
+        localStorage.removeItem(CONFIG.storageKey);
+        localStorage.removeItem(CONFIG.legacyStorageKey);
+        StorageService.updateDraftStatus();
+      }
+    };
+
+    const Gate = {
+      render() {
+        const slide = ONBOARDING[STATE.gateStep];
+        DOM.gateProgress.innerHTML = `<span class="progress-pill">${Utils.escapeHtml(slide.pill)}</span><span>${Utils.escapeHtml(slide.progress)}</span>`;
+        DOM.gateKicker.textContent = slide.kicker;
+        DOM.gateTitle.textContent = slide.title;
+        DOM.gateSubtitle.textContent = slide.subtitle;
+        DOM.gateNote.textContent = slide.note;
+        DOM.gateNextBtn.textContent = slide.button;
+        DOM.gateList.innerHTML = slide.items.map((item, index) => `
+          <li>
+            <span class="list-index">${index + 1}</span>
+            <span><strong>${Utils.escapeHtml(item[0])}</strong> ${Utils.escapeHtml(item[1])}</span>
+          </li>
+        `).join("");
+      },
+
+      next() {
+        if (STATE.gateStep < ONBOARDING.length - 1) {
+          STATE.gateStep += 1;
+          Gate.render();
+          return;
+        }
+
+        Gate.openApp();
+      },
+
+      openApp() {
+        DOM.gate.classList.add("hidden");
+        DOM.app.classList.remove("hidden");
+        DOM.formCard.classList.remove("hidden");
+        DOM.reviewCard.classList.remove("active");
+        FormRenderer.renderStep();
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 40);
+      }
+    };
+
+    const FormModel = {
+      isQuestionVisible(question) {
+        if (!question.condition) return true;
+        const value = STATE.answers[question.condition.questionId];
+        if (Array.isArray(value)) return value.some(item => question.condition.values.includes(item));
+        return question.condition.values.includes(value);
+      },
+
+      shouldShowOtherInput(question) {
+        const value = STATE.answers[question.id];
+        if (question.type === "checkbox") return Array.isArray(value) && value.some(Utils.isOtherOption);
+        if (question.type === "radio") return Utils.isOtherOption(value);
+        return false;
+      },
+
+      getAnswerValue(question) {
+        const value = STATE.answers[question.id];
+
+        if (question.type === "checkbox") {
+          const items = Array.isArray(value) ? [...value] : [];
+          if (items.some(Utils.isOtherOption) && STATE.answers[`${question.id}_other`]) {
+            return items.map(item => Utils.isOtherOption(item) ? `Outro: ${STATE.answers[`${question.id}_other`]}` : item).join("; ");
+          }
+          return items.join("; ");
+        }
+
+        if (question.type === "radio" && value && Utils.isOtherOption(value) && STATE.answers[`${question.id}_other`]) {
+          return `Outro: ${STATE.answers[`${question.id}_other`]}`;
+        }
+
+        return value || "";
+      }
+    };
+
+    const FormRenderer = {
+      option(question, option, index) {
+        const id = `${question.id}_option_${index}`;
+        const selected = question.type === "checkbox"
+          ? Array.isArray(STATE.answers[question.id]) && STATE.answers[question.id].includes(option)
+          : STATE.answers[question.id] === option;
+
+        return `
+          <label class="option" for="${id}">
+            <input type="${question.type}" id="${id}" name="${question.id}" value="${Utils.escapeHtml(option)}" ${selected ? "checked" : ""} />
+            <span class="option-text">${Utils.escapeHtml(option)}</span>
+          </label>
+        `;
+      },
+
+      question(question) {
+        const visible = FormModel.isQuestionVisible(question);
+        const required = question.required && visible;
+        const title = `${question.number}. ${question.label}`;
+        const otherInput = question.otherLabel ? `
+          <div class="other-input-wrap ${FormModel.shouldShowOtherInput(question) ? "visible" : ""}" id="${question.id}_other_wrap">
+            <label for="${question.id}_other" class="hint">${Utils.escapeHtml(question.otherLabel)}</label>
+            <input type="text" id="${question.id}_other" name="${question.id}_other" value="${Utils.escapeHtml(STATE.answers[`${question.id}_other`] || "")}" />
+          </div>
+        ` : "";
+
+        let control = "";
+
+        if (question.type === "radio" || question.type === "checkbox") {
+          control = `
+            <div class="options-grid" role="group" aria-label="${Utils.escapeHtml(question.label)}">
+              ${question.options.map((option, index) => FormRenderer.option(question, option, index)).join("")}
+            </div>
+            ${otherInput}
+          `;
+        }
+
+        if (question.type === "textarea") {
+          control = `<textarea id="${question.id}" name="${question.id}" ${required ? "aria-required='true'" : ""}>${Utils.escapeHtml(STATE.answers[question.id] || "")}</textarea>`;
+        }
+
+        if (question.type === "text") {
+          control = `<input type="text" id="${question.id}" name="${question.id}" value="${Utils.escapeHtml(STATE.answers[question.id] || "")}" ${required ? "aria-required='true'" : ""} />`;
+        }
+
+        return `
+          <article class="question ${visible ? "" : "hidden"}" data-question-id="${question.id}" data-required="${required}">
+            <div class="question-title">
+              <span>${question.number}.</span>
+              <label for="${question.id}">${Utils.escapeHtml(question.label)} ${required ? "<span class='required-mark'>*</span>" : ""}</label>
+            </div>
+            ${question.hint ? `<p class="hint">${Utils.escapeHtml(question.hint)}</p>` : ""}
+            ${control}
+            <div class="field-error">Preencha este campo para avançar.</div>
+          </article>
+        `;
+      },
+
+      renderStep() {
+        const step = FORM_SCHEMA[STATE.currentStep];
+        DOM.stepTitle.textContent = step.title;
+        DOM.stepMicrocopy.textContent = step.microcopy;
+        DOM.progressText.textContent = `Etapa ${STATE.currentStep + 1} de ${FORM_SCHEMA.length + 1}`;
+        DOM.progressFill.style.width = `${((STATE.currentStep + 1) / (FORM_SCHEMA.length + 1)) * 100}%`;
+        DOM.form.innerHTML = step.questions.map(FormRenderer.question).join("");
+        DOM.backBtn.disabled = STATE.currentStep === 0;
+        DOM.nextBtn.textContent = STATE.currentStep === FORM_SCHEMA.length - 1 ? "Revisar respostas" : "Avançar etapa";
+        FormEvents.bindDynamicFields();
+        FormRenderer.updateConditionalVisibility();
+        StorageService.save();
+      },
+
+      updateConditionalVisibility() {
+        const step = FORM_SCHEMA[STATE.currentStep];
+        step.questions.forEach(question => {
+          const questionEl = DOM.form.querySelector(`[data-question-id="${question.id}"]`);
+          if (!questionEl) return;
+
+          const visible = FormModel.isQuestionVisible(question);
+          questionEl.classList.toggle("hidden", !visible);
+          questionEl.dataset.required = String(question.required && visible);
+
+          const otherWrap = DOM.form.querySelector(`#${question.id}_other_wrap`);
+          if (otherWrap) otherWrap.classList.toggle("visible", FormModel.shouldShowOtherInput(question));
+        });
+      }
+    };
+
+    const Validation = {
+      currentStepIsValid() {
+        const step = FORM_SCHEMA[STATE.currentStep];
+        let valid = true;
+        let firstInvalid = null;
+
+        step.questions.forEach(question => {
+          const questionEl = DOM.form.querySelector(`[data-question-id="${question.id}"]`);
+          if (!questionEl || !FormModel.isQuestionVisible(question)) return;
+
+          questionEl.classList.remove("invalid");
+          if (!question.required) return;
+
+          const value = STATE.answers[question.id];
+          let hasValue = false;
+
+          if (question.type === "checkbox") {
+            hasValue = Array.isArray(value) && value.length > 0;
+          } else {
+            hasValue = Boolean(String(value || "").trim());
+          }
+
+          if (hasValue && question.otherLabel && FormModel.shouldShowOtherInput(question)) {
+            hasValue = Boolean(String(STATE.answers[`${question.id}_other`] || "").trim());
+          }
+
+          if (!hasValue) {
+            valid = false;
+            questionEl.classList.add("invalid");
+            if (!firstInvalid) firstInvalid = questionEl;
+          }
+        });
+
+        if (!valid) {
+          Utils.showToast(CONFIG.copy.requiredError);
+          firstInvalid?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        return valid;
+      }
+    };
+
+    const Review = {
+      show() {
+        StorageService.save();
+        DOM.formCard.classList.add("hidden");
+        DOM.reviewCard.classList.add("active");
+        DOM.deliveryStatus.classList.remove("active");
+        DOM.deliveryActions.classList.remove("active");
+        DOM.progressFill.style.width = "100%";
+        Review.render();
+        setTimeout(() => DOM.reviewCard.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      },
+
+      render() {
+        DOM.reviewContent.innerHTML = FORM_SCHEMA.map(step => {
+          const items = step.questions
+            .filter(FormModel.isQuestionVisible)
+            .map(question => {
+              const answer = FormModel.getAnswerValue(question);
+              return `
+                <div class="review-item">
+                  <div class="review-question">${question.number}. ${Utils.escapeHtml(question.label)}</div>
+                  <div class="review-answer ${answer ? "" : "empty-answer"}">${answer ? Utils.escapeHtml(answer) : "Sem resposta."}</div>
+                </div>
+              `;
+            }).join("");
+
+          return `
+            <section class="review-section">
+              <h3>${Utils.escapeHtml(step.title)}</h3>
+              ${items}
+            </section>
+          `;
+        }).join("");
+      },
+
+      edit() {
+        DOM.reviewCard.classList.remove("active");
+        DOM.formCard.classList.remove("hidden");
+        FormRenderer.renderStep();
+        setTimeout(() => DOM.formCard.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      }
+    };
+
+    const PdfService = {
+      ensureLibrary() {
+        const available = Boolean(window.jspdf && window.jspdf.jsPDF);
+        if (!available) {
+          DOM.deliveryStatus.textContent = CONFIG.copy.pdfLoadError;
+          DOM.deliveryStatus.classList.add("active");
+          Utils.showToast(CONFIG.copy.pdfLoadError);
+        }
+        return available;
+      },
+
+      getSafeFileName() {
+        const orgQuestion = Utils.allQuestions().find(question => question.id === "q1");
+        const org = FormModel.getAnswerValue(orgQuestion) || "orgao";
+        return `Consulta_Tecnica_DAI2_${org}`
+          .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-zA-Z0-9]+/g, "_")
+          .replace(/^_+|_+$/g, "")
+          .substring(0, 80) + ".pdf";
+      },
+
+      addHeader(doc, pageWidth, margins) {
+        doc.setFillColor(7, 22, 47);
+        doc.rect(0, 0, pageWidth, 17, "F");
+        doc.setFillColor(179, 32, 37);
+        doc.rect(0, 17, pageWidth * 0.52, 1.2, "F");
+        doc.setFillColor(196, 155, 65);
+        doc.rect(pageWidth * 0.52, 17, pageWidth * 0.48, 1.2, "F");
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(9);
+        doc.setTextColor(255, 255, 255);
+        doc.text("CBMMG | DAI/2", margins.left, 10.8);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8);
+        doc.text("Consulta Técnica para Revisão Normativa", pageWidth - margins.right, 10.8, { align: "right" });
+      },
+
+      addFooter(doc, pageNumber, pageWidth, pageHeight, margins) {
+        doc.setDrawColor(209, 213, 219);
+        doc.setLineWidth(0.2);
+        doc.line(margins.left, pageHeight - 15, pageWidth - margins.right, pageHeight - 15);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8);
+        doc.setTextColor(107, 114, 128);
+        doc.text(CONFIG.pdfFooter, margins.left, pageHeight - 9);
+        doc.text(String(pageNumber), pageWidth - margins.right, pageHeight - 9, { align: "right" });
+      },
+
+      addWrappedText(doc, text, x, y, maxWidth, lineHeight, options = {}) {
+        const {
+          fontStyle = "normal",
+          fontSize = 10,
+          color = [31, 41, 55],
+          maxY = 277,
+          pageWidth = 210,
+          pageHeight = 297,
+          margins = { left: 30, right: 20, top: 25, bottom: 20 },
+          pageRef = { value: 1 }
+        } = options;
+
+        doc.setFont("helvetica", fontStyle);
+        doc.setFontSize(fontSize);
+        doc.setTextColor(...color);
+
+        const lines = doc.splitTextToSize(String(text || ""), maxWidth);
+        let currentY = y;
+
+        lines.forEach(line => {
+          if (currentY > maxY) {
+            PdfService.addFooter(doc, pageRef.value, pageWidth, pageHeight, margins);
+            doc.addPage();
+            pageRef.value += 1;
+            PdfService.addHeader(doc, pageWidth, margins);
+            currentY = margins.top;
+            doc.setFont("helvetica", fontStyle);
+            doc.setFontSize(fontSize);
+            doc.setTextColor(...color);
+          }
+          doc.text(line, x, currentY);
+          currentY += lineHeight;
+        });
+
+        return currentY;
+      },
+
+      generateBlob() {
+        if (!PdfService.ensureLibrary()) return null;
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margins = { top: 25, bottom: 20, left: 30, right: 20 };
+        const maxWidth = pageWidth - margins.left - margins.right;
+        const maxY = pageHeight - margins.bottom - 10;
+        const pageRef = { value: 1 };
+        const lineHeight = 6.4;
+        let y = margins.top;
+
+        PdfService.addHeader(doc, pageWidth, margins);
+
+        y = PdfService.addWrappedText(doc, CONFIG.pdfTitle, margins.left, y, maxWidth, 7.2, {
+          fontStyle: "bold", fontSize: 15, color: [7, 22, 47], maxY, pageWidth, pageHeight, margins, pageRef
+        });
+        y += 1.5;
+
+        y = PdfService.addWrappedText(doc, CONFIG.pdfSubtitle, margins.left, y, maxWidth, 6, {
+          fontStyle: "normal", fontSize: 10.5, color: [75, 85, 99], maxY, pageWidth, pageHeight, margins, pageRef
+        });
+        y += 2;
+
+        const now = new Date();
+        const dateText = now.toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
+        const orgQuestion = Utils.allQuestions().find(question => question.id === "q1");
+        const orgAnswer = FormModel.getAnswerValue(orgQuestion) || "Não informado";
+
+        doc.setDrawColor(196, 155, 65);
+        doc.setLineWidth(0.3);
+        doc.line(margins.left, y, pageWidth - margins.right, y);
+        y += 6;
+
+        y = PdfService.addWrappedText(doc, `Data e hora de geração: ${dateText}`, margins.left, y, maxWidth, lineHeight, {
+          fontStyle: "normal", fontSize: 10, color: [31, 41, 55], maxY, pageWidth, pageHeight, margins, pageRef
+        });
+
+        y = PdfService.addWrappedText(doc, `Órgão externo subordinado à DAI/2 representado: ${orgAnswer}`, margins.left, y, maxWidth, lineHeight, {
+          fontStyle: "bold", fontSize: 10, color: [7, 22, 47], maxY, pageWidth, pageHeight, margins, pageRef
+        });
+        y += 4;
+
+        FORM_SCHEMA.forEach(step => {
+          if (y > maxY - 18) {
+            PdfService.addFooter(doc, pageRef.value, pageWidth, pageHeight, margins);
+            doc.addPage();
+            pageRef.value += 1;
+            PdfService.addHeader(doc, pageWidth, margins);
+            y = margins.top;
+          }
+
+          doc.setFillColor(239, 243, 249);
+          doc.roundedRect(margins.left, y - 4.5, maxWidth, 9, 2, 2, "F");
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11.2);
+          doc.setTextColor(7, 22, 47);
+          doc.text(step.title, margins.left + 3, y + 1.5);
+          y += 12;
+
+          step.questions.filter(FormModel.isQuestionVisible).forEach(question => {
+            const answer = FormModel.getAnswerValue(question) || "Sem resposta.";
+
+            if (y > maxY - 20) {
+              PdfService.addFooter(doc, pageRef.value, pageWidth, pageHeight, margins);
+              doc.addPage();
+              pageRef.value += 1;
+              PdfService.addHeader(doc, pageWidth, margins);
+              y = margins.top;
+            }
+
+            y = PdfService.addWrappedText(doc, `${question.number}. ${question.label}`, margins.left, y, maxWidth, lineHeight, {
+              fontStyle: "bold", fontSize: 10, color: [7, 22, 47], maxY, pageWidth, pageHeight, margins, pageRef
+            });
+
+            y = PdfService.addWrappedText(doc, answer, margins.left, y + 1.2, maxWidth, lineHeight, {
+              fontStyle: "normal", fontSize: 9.6, color: [31, 41, 55], maxY, pageWidth, pageHeight, margins, pageRef
+            });
+            y += 3.5;
+          });
+          y += 2;
+        });
+
+        PdfService.addFooter(doc, pageRef.value, pageWidth, pageHeight, margins);
+        STATE.generatedPdfDoc = doc;
+        return doc.output("blob");
+      },
+
+      clearGeneratedFile() {
+        STATE.generatedPdfDoc = null;
+        STATE.generatedPdfFile = null;
+        if (STATE.generatedPdfBlobUrl) {
+          URL.revokeObjectURL(STATE.generatedPdfBlobUrl);
+          STATE.generatedPdfBlobUrl = null;
+        }
+      },
+
+      prepareGeneratedFile(blob) {
+        PdfService.clearGeneratedFile();
+        const filename = PdfService.getSafeFileName();
+        STATE.generatedPdfFile = new File([blob], filename, { type: "application/pdf" });
+        STATE.generatedPdfBlobUrl = URL.createObjectURL(blob);
+        DOM.downloadPdfBtn.disabled = false;
+        DOM.whatsappBtn.href = Delivery.getWhatsAppUrl();
+        return filename;
+      },
+
+      download() {
+        if (!STATE.generatedPdfBlobUrl) return;
+        const a = document.createElement("a");
+        a.href = STATE.generatedPdfBlobUrl;
+        a.download = STATE.generatedPdfFile?.name || PdfService.getSafeFileName();
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+    };
+
+    const Delivery = {
+      getWhatsAppUrl() {
+        const text = encodeURIComponent(CONFIG.whatsappMessage);
+        return `https://wa.me/${CONFIG.whatsappNumber}?text=${text}`;
+      },
+
+      async generateAndStart() {
+        const blob = PdfService.generateBlob();
+        if (!blob) return;
+
+        const filename = PdfService.prepareGeneratedFile(blob);
+        DOM.deliveryStatus.textContent = CONFIG.copy.pdfGenerated;
+        DOM.deliveryStatus.classList.add("active");
+        DOM.deliveryActions.classList.add("active");
+
+        const shareData = {
+          title: "Consulta Técnica DAI/2",
+          text: CONFIG.whatsappMessage,
+          files: [STATE.generatedPdfFile]
+        };
+
+        if (Utils.isMobileLikeDevice() && navigator.canShare && navigator.canShare(shareData) && navigator.share) {
+          try {
+            await navigator.share(shareData);
+            DOM.deliveryStatus.textContent = CONFIG.copy.shareMobileSuccess;
+            Utils.showToast(CONFIG.copy.shareMobileSuccess);
+            return;
+          } catch {
+            DOM.deliveryStatus.textContent = CONFIG.copy.shareCancelled;
+            Utils.showToast(CONFIG.copy.shareCancelled);
+            return;
+          }
+        }
+
+        PdfService.download();
+        window.open(Delivery.getWhatsAppUrl(), "_blank", "noopener,noreferrer");
+        DOM.deliveryStatus.textContent = `${CONFIG.copy.shareDesktopSuccess} Arquivo: ${filename}`;
+        Utils.showToast(CONFIG.copy.shareDesktopSuccess);
+      }
+    };
+
+    const Modal = {
+      requestClear() {
+        DOM.confirmModal.classList.remove("hidden");
+        DOM.cancelClearBtn.focus();
+      },
+
+      close() {
+        DOM.confirmModal.classList.add("hidden");
+      },
+
+      confirmClear() {
+        StorageService.clear();
+        Modal.close();
+        DOM.deliveryStatus.classList.remove("active");
+        DOM.deliveryActions.classList.remove("active");
+        DOM.reviewCard.classList.remove("active");
+        DOM.formCard.classList.remove("hidden");
+        FormRenderer.renderStep();
+        Utils.showToast(CONFIG.copy.clearSuccess);
+        setTimeout(() => DOM.formCard.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+      }
+    };
+
+    const FormEvents = {
+      bindDynamicFields() {
+        DOM.form.querySelectorAll("input, textarea").forEach(field => {
+          field.addEventListener("input", FormEvents.handleFieldChange);
+          field.addEventListener("change", FormEvents.handleFieldChange);
+        });
+      },
+
+      handleFieldChange(event) {
+        const field = event.target;
+        const question = FORM_SCHEMA[STATE.currentStep].questions.find(item => item.id === field.name || `${item.id}_other` === field.name);
+        const questionEl = field.closest(".question");
+        if (questionEl) questionEl.classList.remove("invalid");
+
+        if (field.type === "checkbox") {
+          const checked = [...DOM.form.querySelectorAll(`input[name="${field.name}"]:checked`)].map(input => input.value);
+          STATE.answers[field.name] = checked;
+        } else if (field.type === "radio") {
+          STATE.answers[field.name] = field.value;
+        } else {
+          STATE.answers[field.name] = field.value;
+        }
+
+        if (question) FormRenderer.updateConditionalVisibility();
+        StorageService.save();
+      },
+
+      nextStep() {
+        if (!Validation.currentStepIsValid()) return;
+        if (STATE.currentStep < FORM_SCHEMA.length - 1) {
+          STATE.currentStep += 1;
+          FormRenderer.renderStep();
+          setTimeout(() => DOM.formCard.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+          return;
+        }
+        Review.show();
+      },
+
+      previousStep() {
+        if (STATE.currentStep === 0) return;
+        STATE.currentStep -= 1;
+        FormRenderer.renderStep();
+        setTimeout(() => DOM.formCard.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      },
+
+      bindStaticEvents() {
+        DOM.gateNextBtn.addEventListener("click", Gate.next);
+        DOM.nextBtn.addEventListener("click", FormEvents.nextStep);
+        DOM.backBtn.addEventListener("click", FormEvents.previousStep);
+        DOM.editBtn.addEventListener("click", Review.edit);
+        DOM.clearReviewBtn.addEventListener("click", Modal.requestClear);
+        DOM.cancelClearBtn.addEventListener("click", Modal.close);
+        DOM.confirmClearBtn.addEventListener("click", Modal.confirmClear);
+        DOM.confirmModal.addEventListener("click", event => {
+          if (event.target === DOM.confirmModal) Modal.close();
+        });
+        DOM.generatePdfBtn.addEventListener("click", Delivery.generateAndStart);
+        DOM.downloadPdfBtn.addEventListener("click", PdfService.download);
+        DOM.whatsappBtn.addEventListener("click", () => {
+          DOM.whatsappBtn.href = Delivery.getWhatsAppUrl();
+        });
+        window.addEventListener("beforeunload", () => StorageService.save());
+      }
+    };
+
+    const App = {
+      init() {
+        StorageService.requestPersistentStorage();
+        StorageService.load();
+        Gate.render();
+        FormEvents.bindStaticEvents();
+        StorageService.updateDraftStatus();
+      }
+    };
+
+    App.init();
+  </script>
+</body>
+</html>
