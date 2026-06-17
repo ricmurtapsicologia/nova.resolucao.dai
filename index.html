@@ -1755,6 +1755,38 @@
       }
     }
 
+
+
+    /* Correção final do rodapé: sempre centralizado em desktop e mobile. */
+    .footer,
+    .footer p,
+    .footer strong {
+      text-align: center !important;
+    }
+
+    .footer {
+      display: grid !important;
+      justify-items: center !important;
+      align-items: center !important;
+    }
+
+    .footer p {
+      width: 100% !important;
+      max-width: none !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align-last: center !important;
+    }
+
+    @media (max-width: 780px) {
+      .footer,
+      .footer p,
+      .footer strong {
+        text-align: center !important;
+        text-align-last: center !important;
+      }
+    }
+
 </style>
 </head>
 
